@@ -1,0 +1,34 @@
+Funzionalità da aggiungere all'interno del progetto:
+1) Registrazione utente
+2) Gestione sessione web e mobile
+3) Gestione dei permessi utente amministratore
+4) Lista degli utenti
+5) Archiviazione Utenti
+6) Login Da mobile Android e trasmissione del bollettino Criticità: 
+    -utilizzo delle Api Rest (Jersey libreria)
+7) Visualizzazione delle criticità sul sito
+8) Criptazione password database
+8) Interazione tomcat SSL da configurare
+Facoltativo
+Infine Testing con Junit e Selenium
+
+
+
+Funzionalità gia aggiunte:
+ 1)Configurazione DB Postgresql + Postgis
+ 2)Pagina principale sito e redizione
+ 3)Login Utente e controllo Gis
+ 4)Implementazione mappe a tre livelli (Base Layer, Regioni e Province)
+ 5)Controllo Sessione (Da revisionare )
+ 6)Scraping della pagine protezione civile per la ricerca del Bollettino Criticità
+ 
+ Suggerimenti Sessione:
+ Sessione è uno stato convenzionale tra client e server, consiste in multiple richieste e risposte tra client e server. 
+ L'unico modo per mantenere la sessione è quando alcune informazioni univoche riguardo al sessione (session id) è
+ trasferita tra server e client in ogni richieste e risposte.
+ 
+
+
+ 
+ 
+  

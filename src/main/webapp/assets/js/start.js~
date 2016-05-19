@@ -1,0 +1,103 @@
+var regStyle = new ol.style.Style ({
+
+           fill: new ol.style.Fill({
+
+            color: 'rgba(127,129,112,0.3)'
+
+
+           }),
+           stroke: new ol.style.Stroke({
+
+            color: 'green', width: 2})                             
+        });
+
+
+var reg = new ol.layer.Vector({
+  source: new ol.source.Vector({
+    url: 'http://localhost/json/regioni.geojson',
+    format: new ol.format.GeoJSON(),
+    projection: 'EPSG:3857' 
+  }),
+
+  style: regStyle
+});
+
+
+  
+
+var prov = new ol.layer.Vector({
+  source: new ol.source.Vector({
+    url: 'http://localhost/json/province.kml',
+    format: new ol.format.KML(),
+    projection: 'EPSG:3857'
+    
+  })
+});
+
+
+  
+  var base_layer = new ol.layer.Tile({
+
+    source: new ol.source.OSM()
+  }); 
+
+  var italy = ol.proj.fromLonLat([14.334, 40.965])
+
+  var view = new ol.View({
+  
+    center: italy,
+    zoom: 6,
+  });
+
+
+var scale = new ol.control.ScaleLine({
+
+  className: 'ol-scale-line',
+  target: document.getElementById('scale-line')
+});
+
+
+
+
+  var mousePositionControl = new ol.control.MousePosition({
+        coordinateFormat: ol.coordinate.createStringXY(2),
+        projection: 'EPSG:3857',
+        // comment the following two lines to have the mouse position
+        // be placed within the map.
+        className: 'custom-mouse-position',
+        target: document.getElementById('mouse-position'),
+        undefinedHTML: '&nbsp;'
+      });
+
+  var scale = new ol.control.ScaleLine();
+
+  var map = new ol.Map({
+
+     controls: ol.control.defaults({
+          attributionOptions: ({  collapsible: false })
+
+           }).extend([mousePositionControl, scale]),
+
+    target: 'map',
+    layers: [base_layer, prov,reg],
+    view: view
+
+  });
+
+  
+
+
+
+  function initMap()
+{
+    // do map object creation and initialization here
+    // ...
+
+    // add a click event handler to the map object
+    GEvent.addListener(map, "click", function(overlay, latLng)
+    {
+        // display the lat/lng in your form's lat/lng fields
+        document.getElementById("lat").value = latLng.lat();
+        document.getElementById("lng").value = latLng.lng();
+    });
+}

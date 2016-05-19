@@ -1,0 +1,11 @@
+com/serviddio/gis/ServletSuccess.class
+com/serviddio/gis/ServletLogin.class
+com/serviddio/gis/SessionCounter.class
+com/serviddio/gis/DB.class
+com/serviddio/gis/UserBean.class
+com/serviddio/gis/ListUsersAdmin.class
+com/serviddio/gis/ServletSuccess2.class
+com/serviddio/gis/Scraping.class
+com/serviddio/gis/ServletLogout.class
+com/serviddio/gis/ServletGis.class
+com/serviddio/gis/UsersOnline.class

@@ -1,0 +1,40 @@
+.jumbotron-fluid {
+	
+	padding: 10px;
+	
+}
+
+#mouse-control {
+	
+	margin-left: 10px;
+}
+
+#province {
+	background: red;
+	
+}
+#regioni {
+	
+	background: blue;
+	
+}
+ button, textarea {
+	color: white;
+	
+}
+#titleGis {
+	
+	color: green;
+	
+}
+#signed_as {
+	
+	  color: green;
+	
+}
+
+ #map2 {
+         width: 800px;
+         height: 800px;
+     }
+
