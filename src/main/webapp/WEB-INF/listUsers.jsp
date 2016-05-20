@@ -3,7 +3,7 @@
 <%@ page import="com.serviddio.gis.model.*"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.Iterator"%>
-<%@ page import="java.util.List" %>
+<%@ page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,20 +12,27 @@
 
 </head>
 <body>
-	
 
-   <% 
-    SessionCounter counter = (SessionCounter) session.getAttribute( SessionCounter.COUNTER); 
+	<h1>Utenti Online</h1>
+	<%
+		SessionCounter counter = (SessionCounter) session.getAttribute(SessionCounter.COUNTER);
 	%>
-Lista utenti:
-<%= counter.getActiveSessionNumber() %>
-	
-		<%String email=counter.getUser(0).getEmail(); %>
- <%= email   %>
+	Numeri utenti :
+	<%=counter.getActiveSessionNumber()%>
+	<h2>Lista Utenti:</h2>
+
+	<%for(UsersOnline uo:counter.getSessions()) { %>
 
 
-	
-	
+
+
+	<%= uo.getId()%>
+
+	Utente:
+	<p><%=uo.getName()%></p>
+	Email:
+	<span> <%=uo.getEmail()%></span>
+	<%} %>
 </body>
 </html>
 

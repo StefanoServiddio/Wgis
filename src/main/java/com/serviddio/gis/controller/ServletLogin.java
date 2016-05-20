@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.serviddio.gis.model.DB;
+import com.serviddio.gis.model.SessionCounter;
 import com.serviddio.gis.model.UserBean;
+import com.serviddio.gis.model.UsersOnline;
 
 /**
  * Servlet implementation class ServletLogin
@@ -76,6 +78,10 @@ public class ServletLogin extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("user", request.getParameter("email"));
 				session.setAttribute("name", ut.getName());
+				UsersOnline us=new UsersOnline(session.getId(),(String)session.getAttribute("name"),
+						(String)session.getAttribute("user"));
+				SessionCounter contatoreSessione= (SessionCounter)session.getAttribute(SessionCounter.COUNTER);
+				contatoreSessione.updateSession(session.getId(), us);
 			
  	           session.setMaxInactiveInterval(30*60);
 				response.sendRedirect("./Success");

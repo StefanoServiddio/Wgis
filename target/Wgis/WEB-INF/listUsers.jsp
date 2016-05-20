@@ -20,11 +20,13 @@
 Lista utenti:
 <%= counter.getActiveSessionNumber() %>
 	
-		<%String email=counter.getUser(0).getEmail(); %>
- <%= email   %>
-
-
-	
+		<%String id=counter.getSessions().get(0).getId(); %>
+ <%= id   %>
+<%String name =counter.getSessions().get(0).getName();%>
+Utente:
+<p><%= name %> </p>
+<%String email =counter.getSessions().get(0).getEmail(); %>
+<span> <%=email %>	</span>
 	
 </body>
 </html>
