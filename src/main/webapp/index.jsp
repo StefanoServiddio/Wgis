@@ -7,6 +7,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Wgis</title>
+
+
+
+</head>
+
+
+<body>
 <% HttpSession sess = request.getSession(false);
  if(sess!=null)
  {
@@ -15,13 +22,6 @@
  	
  }  
 %>
-
-
-</head>
-
-
-<body>
-
 	<h2>Welcome to Wonderful GIS</h2>
 
 

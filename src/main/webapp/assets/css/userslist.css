@@ -1,0 +1,29 @@
+    	
+    	.row{
+		    margin-top:40px;
+		    padding: 0 10px;
+		}
+		.clickable{
+		    cursor: pointer;   
+		}
+
+		.panel-heading div {
+			margin-top: -18px;
+			font-size: 15px;
+		}
+		.panel-heading div span{
+			margin-left:5px;
+		}
+		.panel-body{
+			display: none;
+		}
+		
+		tr.utenti_db> td{
+		
+		width: 25%;
+		}
+		tr.utenti_online> td{
+		
+		width: 35%;
+		}
+		

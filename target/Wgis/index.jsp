@@ -7,23 +7,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Wgis</title>
-<%-- <% HttpSession sess = request.getSession(); --%>
-// if(sess.isNew())
-// {
-	
-// 	SessionCounter sessCont= new SessionCounter();
-//      sess.setAttribute(SessionCounter.COUNTER, sessCont);
-// } 
 
-
-<%-- %> --%>
 
 
 </head>
 
 
 <body>
-
+<% HttpSession sess = request.getSession(false);
+ if(sess!=null)
+ {
+	 sess.invalidate();
+	 sess = request.getSession(true);
+ 	
+ }  
+%>
 	<h2>Welcome to Wonderful GIS</h2>
 
 

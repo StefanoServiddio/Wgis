@@ -39,7 +39,7 @@ public class ServletGis extends HttpServlet {
 			
 			BufferedImage img=Scraping.getImageFromURL("http://www.protezionecivile.gov.it/resources/cms/images/"+
 			Scraping.getDate()
-		    +"_domani_bcr_d0.jpg");
+		    +"_oggi_bcr_d0.jpg");
 			
 			ImageIO.write(img, "jpg", new File("/home/stefano/workspace/Wgis/src/main/webapp/assets/img/allertaOggi.jpg"));
 			
