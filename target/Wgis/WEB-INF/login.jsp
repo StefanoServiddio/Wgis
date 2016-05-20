@@ -13,8 +13,7 @@
 <%
   HttpSession sess = request.getSession();
   if(sess!= null &&(sess.getAttribute("user"))!=null)
-  {
-	  
+  {	  
 	  System.out.println(request.getSession().getAttribute("user"));
 	  response.sendRedirect("./Success");
   }

@@ -10,50 +10,50 @@
   <display-name>Archetype Created Web Application</display-name>
       <listener>
         <listener-class>
-            com.serviddio.gis.SessionCounter
+            com.serviddio.gis.model.SessionCounter
         </listener-class>
     </listener>
   <servlet>
   	<servlet-name>ServletLogin</servlet-name>
   	<display-name>ServletLogin</display-name>
   	<description></description>
-  	<servlet-class>com.serviddio.gis.ServletLogin</servlet-class>
+  	<servlet-class>com.serviddio.gis.controller.ServletLogin</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>ServletLogout</servlet-name>
   	<display-name>ServletLogout</display-name>
   	<description></description>
-  	<servlet-class>com.serviddio.gis.ServletLogout</servlet-class>
+  	<servlet-class>com.serviddio.gis.controller.ServletLogout</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>ServletGis</servlet-name>
   	<display-name>ServletGis</display-name>
   	<description></description>
-  	<servlet-class>com.serviddio.gis.ServletGis</servlet-class>
+  	<servlet-class>com.serviddio.gis.controller.ServletGis</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>ServletSuccess</servlet-name>
   	<display-name>ServletSuccess</display-name>
   	<description></description>
-  	<servlet-class>com.serviddio.gis.ServletSuccess</servlet-class>
+  	<servlet-class>com.serviddio.gis.controller.ServletSuccess</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>IndexServlet</servlet-name>
   	<display-name>IndexServlet</display-name>
   	<description></description>
-  	<servlet-class>com.serviddio.gis.IndexServlet</servlet-class>
+  	<servlet-class>com.serviddio.gis.controller.IndexServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>ServletSuccess2</servlet-name>
   	<display-name>ServletSuccess2</display-name>
   	<description></description>
-  	<servlet-class>com.serviddio.gis.ServletSuccess2</servlet-class>
+  	<servlet-class>com.serviddio.gis.controller.ServletSuccess2</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>ListUsersAdmin</servlet-name>
   	<display-name>ListUsersAdmin</display-name>
   	<description></description>
-  	<servlet-class>com.serviddio.gis.ListUsersAdmin</servlet-class>
+  	<servlet-class>com.serviddio.gis.controller.ListUsersAdmin</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>ServletLogin</servlet-name>
