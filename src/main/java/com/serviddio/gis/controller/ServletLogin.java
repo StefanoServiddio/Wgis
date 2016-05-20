@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.serviddio.gis.model.DB;
-import com.serviddio.gis.model.SessionCounter;
 import com.serviddio.gis.model.UserBean;
 import com.serviddio.gis.model.UsersOnline;
 

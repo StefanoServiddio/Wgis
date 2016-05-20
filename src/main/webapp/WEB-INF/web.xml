@@ -10,7 +10,7 @@
   <display-name>Archetype Created Web Application</display-name>
       <listener>
         <listener-class>
-            com.serviddio.gis.model.SessionCounter
+            com.serviddio.gis.controller.SessionCounter
         </listener-class>
     </listener>
   <servlet>

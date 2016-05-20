@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.serviddio.gis.controller.*"%>
 <%@ page import="com.serviddio.gis.model.*"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.Iterator"%>
@@ -15,7 +16,8 @@
 
 	<h1>Utenti Online</h1>
 	<%
-		SessionCounter counter = (SessionCounter) session.getAttribute(SessionCounter.COUNTER);
+		SessionCounter counter = (SessionCounter) request.getSession().getAttribute(SessionCounter.COUNTER);
+	if(counter !=null){
 	%>
 	Numeri utenti :
 	<%=counter.getActiveSessionNumber()%>
@@ -25,13 +27,16 @@
 
 
 
+   <h3>ID:</h3>
+	<span><%= uo.getId()%></span>
 
-	<%= uo.getId()%>
-
-	Utente:
-	<p><%=uo.getName()%></p>
-	Email:
+	<h3>Nome:</h3>
+	<span><%=uo.getName()%></span>
+	<h3>Email:</h3>
 	<span> <%=uo.getEmail()%></span>
+	<%} %>
+	<%}else{ %>
+	<h2>Attenzione Lista Utenti inesistente</h2>
 	<%} %>
 </body>
 </html>

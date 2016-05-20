@@ -4,8 +4,8 @@
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/controller/ListUsersAdmin.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/model/UsersOnline.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/model/UserBean.java
+/home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/controller/SessionCounter.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/model/Scraping.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/controller/ServletSuccess2.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/model/DB.java
-/home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/model/SessionCounter.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/controller/ServletGis.java

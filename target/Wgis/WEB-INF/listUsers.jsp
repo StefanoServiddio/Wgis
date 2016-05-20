@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.serviddio.gis.controller.*"%>
 <%@ page import="com.serviddio.gis.model.*"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.Iterator"%>
-<%@ page import="java.util.List" %>
+<%@ page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,22 +13,31 @@
 
 </head>
 <body>
-	
 
-   <% 
-    SessionCounter counter = (SessionCounter) session.getAttribute( SessionCounter.COUNTER); 
+	<h1>Utenti Online</h1>
+	<%
+		SessionCounter counter = (SessionCounter) request.getSession().getAttribute(SessionCounter.COUNTER);
+	if(counter !=null){
 	%>
-Lista utenti:
-<%= counter.getActiveSessionNumber() %>
-	
-		<%String id=counter.getSessions().get(0).getId(); %>
- <%= id   %>
-<%String name =counter.getSessions().get(0).getName();%>
-Utente:
-<p><%= name %> </p>
-<%String email =counter.getSessions().get(0).getEmail(); %>
-<span> <%=email %>	</span>
-	
+	Numeri utenti :
+	<%=counter.getActiveSessionNumber()%>
+	<h2>Lista Utenti:</h2>
+
+	<%for(UsersOnline uo:counter.getSessions()) { %>
+
+
+
+   <h3>ID:</h3>
+	<span><%= uo.getId()%></span>
+
+	<h3>Nome:</h3>
+	<span><%=uo.getName()%></span>
+	<h3>Email:</h3>
+	<span> <%=uo.getEmail()%></span>
+	<%} %>
+	<%}else{ %>
+	<h2>Attenzione Lista Utenti inesistente</h2>
+	<%} %>
 </body>
 </html>
 

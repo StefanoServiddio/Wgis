@@ -1,7 +1,7 @@
 com/serviddio/gis/model/UserBean.class
-com/serviddio/gis/model/SessionCounter.class
 com/serviddio/gis/controller/ServletSuccess.class
 com/serviddio/gis/model/DB.class
+com/serviddio/gis/controller/SessionCounter.class
 com/serviddio/gis/controller/ServletSuccess2.class
 com/serviddio/gis/controller/ServletGis.class
 com/serviddio/gis/model/Scraping.class
