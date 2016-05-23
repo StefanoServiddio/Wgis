@@ -1,11 +1,10 @@
 package com.serviddio.gis.model;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 import java.sql.*;
-import org.postgresql.Driver;
+
 
 public class DAOUser {
 
@@ -167,5 +166,32 @@ public class DAOUser {
 		return utenti;
 
 	}
-
+	public int save(UserReg user){
+		startConnection();
+		Statement stmt;
+		
+			try {
+				stmt = conn.createStatement();
+			
+			String query = "INSERT INTO utente(nome,email,passw,role) VALUES ("
+			+"\'" + user.getName() + "\'" + ","
+			+"\'"+ user.getEmail()+"\'"+ "," 
+			+ "\'" + user.getPassword() + "\'"+ "," 
+			+ user.getRole() + ");";
+			int result=stmt.executeUpdate(query);
+			
+			stmt.close();
+			closeConn();
+			return result;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+				closeConn();
+				return 2;
+			}
+			
+		
+	
+	}
 }

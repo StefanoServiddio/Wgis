@@ -51,5 +51,11 @@ public class User {
 		else
 			return false;
 	}
+	public Boolean isViewer(){
+		if(role==0)
+			return true;
+		else
+			return false;
+	}
 
 }

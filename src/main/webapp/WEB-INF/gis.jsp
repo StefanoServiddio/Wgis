@@ -57,7 +57,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="./index.jsp">Home <span class="sr-only">(current)</span></a></li>
         <li><a href="./Login">Sign in</a></li>
-         <li><a href="#">Sign up</a></li>
+         <li><a href="./SignUp">Sign up</a></li>
          <% if(utente!=null && utente.isAdmin()){%>
           <li><a href="./ListUsers">ListUser</a></li>
           <%} %>
@@ -104,15 +104,17 @@
 			</div>
 
 
-
+           
 			<div class="col-xs-2 col-md-2 col-lg-2">
 				<div class="btn-group-vertical">
-
+                    
 					<button type="button" class="btn " id="regioni">Regioni</button>
 					<button type="button" class="btn" id="province">Province</button>
+					
 					<div id="info" style="display: none;"></div>
 					<label> Show Position <input id="track" type="checkbox" /></label>
 					<p id="info"></p>
+					
 
 
 					<script type="text/javascript" src="/Wgis/assets/js/start.js">
@@ -130,6 +132,7 @@
 
 				</div>
 			</div>
+			
 		</div>
 	</div>
 	<div class="container-fluid">
