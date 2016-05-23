@@ -34,13 +34,13 @@
 			<div class="col-md-6">
 				<div class="panel panel-success">
 					<div class="panel-heading">
-						<h3 class="panel-title">Users</h3>
+						<h3 class="panel-title">Users n. <%= request.getAttribute("numUtenti") %></h3>
 
 					</div>
 
 					<table class="table table-hover" id="task-table">
 						<thead>
-							<tr>
+							<tr class="utenti_db">
 								<th>ID</th>
 								<th>Name</th>
 								<th>Email</th>
@@ -48,16 +48,23 @@
 							</tr>
 						</thead>
 						<tbody>
-						<% int count=0;
-						for(UserBean usr:((List<UserBean> )request.getAttribute("usersList"))){ %>
-							<tr>
-								<td><%= count++ %></td>
+						<% 
+						int count=0;
+						List<UserLog> lista =(ArrayList<UserLog>)request.getAttribute("usersList");
+						if(lista!=null){
+							//UserBean usr=new UserBean();
+							for(UserLog usr:lista){
+						//for(Iterator<UserBean>it=lista.iterator(); it.hasNext(); usr=it.next()){ 
+						  count++;
+						%>
+							<tr class="utenti_db">
+								<td><%= count%></td>
 								<td><%= usr.getName() %></td>
 								<td><%= usr.getEmail() %></td>
 								<td><%= usr.getPassword() %></td>
 							</tr>
 							
-							<%} %>
+							<%}} %>
 						
 						</tbody>
 					</table>
@@ -108,7 +115,7 @@
 					</div>
 					<table class="table table-hover" id="dev-table">
 						<thead>
-							<tr>
+							<tr class ="utenti_online">
 
 								<th>Session ID</th>
 								<th>Name</th>
@@ -117,9 +124,9 @@
 						</thead>
 						<tbody>
 							<%
-								for (UsersOnline uo : counter.getSessions()) {
+								for (UserOnline uo : counter.getSessions()) {
 							%>
-							<tr>
+							<tr class ="utenti_online">
 								<td><%=uo.getId()%></td>
 
 

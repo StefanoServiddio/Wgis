@@ -50,10 +50,10 @@
 						<tbody>
 						<% 
 						int count=0;
-						List<UserBean> lista =(ArrayList<UserBean>)request.getAttribute("usersList");
+						List<UserLog> lista =(ArrayList<UserLog>)request.getAttribute("usersList");
 						if(lista!=null){
 							//UserBean usr=new UserBean();
-							for(UserBean usr:lista){
+							for(UserLog usr:lista){
 						//for(Iterator<UserBean>it=lista.iterator(); it.hasNext(); usr=it.next()){ 
 						  count++;
 						%>
@@ -124,7 +124,7 @@
 						</thead>
 						<tbody>
 							<%
-								for (UsersOnline uo : counter.getSessions()) {
+								for (UserOnline uo : counter.getSessions()) {
 							%>
 							<tr class ="utenti_online">
 								<td><%=uo.getId()%></td>

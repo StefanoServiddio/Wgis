@@ -13,8 +13,8 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-import com.serviddio.gis.model.DB;
-import com.serviddio.gis.model.UserBean;
+import com.serviddio.gis.model.DAOUser;
+import com.serviddio.gis.model.UserLog;
 
 /**
  * Servlet implementation class ListUsersAdmin
@@ -37,9 +37,9 @@ public class ListUsersAdmin extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		DB pickuser = new DB();
+		DAOUser pickuser = new DAOUser();
 
-		List<UserBean> usersList = pickuser.getUsersList();
+		List<UserLog> usersList = pickuser.getUsersList();
 
 		request.setAttribute("usersList", usersList);
 		if (pickuser.countEl() > -1)

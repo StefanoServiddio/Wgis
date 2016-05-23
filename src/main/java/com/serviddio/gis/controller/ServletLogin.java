@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.serviddio.gis.model.DB;
-import com.serviddio.gis.model.UserBean;
-import com.serviddio.gis.model.UsersOnline;
+import com.serviddio.gis.model.DAOUser;
+import com.serviddio.gis.model.UserLog;
+import com.serviddio.gis.model.UserOnline;
 
 /**
  * Servlet implementation class ServletLogin
@@ -68,16 +68,16 @@ public class ServletLogin extends HttpServlet {
 	
 		
 			
-			DB gis = new DB();
+			DAOUser gis = new DAOUser();
 			Boolean checked = gis.check(request.getParameter("email"), request.getParameter("password"));
-			UserBean ut = new UserBean(request.getParameter("email"), request.getParameter("password"));
+			UserLog ut = new UserLog(request.getParameter("email"), request.getParameter("password"));
 			ut.setName(gis.getName_last_user());
 
 			if (checked) {
 				HttpSession session = request.getSession();
 				session.setAttribute("user", request.getParameter("email"));
 				session.setAttribute("name", ut.getName());
-				UsersOnline us=new UsersOnline(session.getId(),(String)session.getAttribute("name"),
+				UserOnline us=new UserOnline(session.getId(),(String)session.getAttribute("name"),
 						(String)session.getAttribute("user"));
 				SessionCounter contatoreSessione= (SessionCounter)session.getAttribute(SessionCounter.COUNTER);
 				contatoreSessione.updateSession(session.getId(), us);

@@ -130,24 +130,26 @@
 	</div>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-xs-4 col-md-4 col-lg-4">
-				<img style="width: 600px; height: 800px;"
-					src="http://www.protezionecivile.gov.it/resources/cms/images/zone_allerta_2013_Last_d0_d0.jpg">
-			</div>
+			
 			<%
 				File img = new File("/home/stefano/workspace/Wgis/src/main/webapp/assets/img/allertaOggi.jpg");
 
 				if (img.exists()) {
 			%>
 
-			<div class="row">
+			
 				<div class="col-xs-4 col-md-4 col-lg-4">
 					<img type="image/tif" src="/Wgis/assets/img/allertaOggi.jpg">
 				</div>
-			</div>
+		
 			<%
 				}
 			%>
+			<div class="col-xs-2 col-md-2 col-lg-2">
+				<img style="width: 200px; height: 300px;"
+					
+					src="http://www.protezionecivile.gov.it/resources/cms/images/legenda_bcr_5_d0.jpg">
+			</div>
 
 
 		</div>

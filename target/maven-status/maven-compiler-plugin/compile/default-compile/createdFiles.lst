@@ -1,11 +1,12 @@
-com/serviddio/gis/model/UserBean.class
+com/serviddio/gis/tools/Scraping.class
+com/serviddio/gis/model/DAOUser.class
+com/serviddio/gis/model/UserOnline.class
+com/serviddio/gis/model/User.class
 com/serviddio/gis/controller/ServletSuccess.class
-com/serviddio/gis/model/DB.class
 com/serviddio/gis/controller/SessionCounter.class
 com/serviddio/gis/controller/ServletSuccess2.class
 com/serviddio/gis/controller/ServletGis.class
-com/serviddio/gis/model/Scraping.class
-com/serviddio/gis/model/UsersOnline.class
 com/serviddio/gis/controller/ServletLogout.class
 com/serviddio/gis/controller/ListUsersAdmin.class
+com/serviddio/gis/model/UserLog.class
 com/serviddio/gis/controller/ServletLogin.class

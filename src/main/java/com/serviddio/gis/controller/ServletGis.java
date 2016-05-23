@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.serviddio.gis.model.Scraping;
+import com.serviddio.gis.tools.Scraping;
 
 
 /**
@@ -40,7 +40,13 @@ public class ServletGis extends HttpServlet {
 			BufferedImage img=Scraping.getImageFromURL("http://www.protezionecivile.gov.it/resources/cms/images/"+
 			Scraping.getDate()
 		    +"_oggi_bcr_d0.jpg");
-			
+			if(img==null)
+			{ 
+				System.out.println("nessuna immagine trovata, avvio secondo tentativo");
+				img=Scraping.getImageFromURL("http://www.protezionecivile.gov.it/resources/cms/images/"+
+						Scraping.getDate()
+					    +"_domani_bcr_d0.jpg");
+			}
 			ImageIO.write(img, "jpg", new File("/home/stefano/workspace/Wgis/src/main/webapp/assets/img/allertaOggi.jpg"));
 			
 			if(img!=null)

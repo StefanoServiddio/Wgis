@@ -8,15 +8,15 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-import com.serviddio.gis.model.UsersOnline;
+import com.serviddio.gis.model.UserOnline;
 
 public class  SessionCounter implements HttpSessionListener {
-	private List<UsersOnline> sessions;
+	private List<UserOnline> sessions;
 
 	public static final String COUNTER = "list-user-online";
 
 	public  SessionCounter() {
-		sessions = new ArrayList<UsersOnline>();
+		sessions = new ArrayList<UserOnline>();
 		System.out.println("Sessione create, dimensione lista: " + sessions.size());
 	}
 
@@ -25,13 +25,13 @@ public class  SessionCounter implements HttpSessionListener {
 		System.out.println("Dimensione session attuale: " + sessions.size());
 		
 		synchronized(this){
-		UsersOnline user = null;
+		UserOnline user = null;
 		HttpSession session = event.getSession();
 		if (session.getAttribute("user") == null || session.getAttribute("name") == null)
-			user = new UsersOnline(session.getId(), "", "");
+			user = new UserOnline(session.getId(), "", "");
 
 		else
-			user = new UsersOnline(session.getId(), (String) session.getAttribute("name"),
+			user = new UserOnline(session.getId(), (String) session.getAttribute("name"),
 					(String) session.getAttribute("user"));
 		sessions.add(user);
 		System.out.println("Dimensione session aggiornata: " + sessions.size());
@@ -47,7 +47,7 @@ public class  SessionCounter implements HttpSessionListener {
 		System.out.println("Distruggo l'utente: " + session.getId() + "\nnome: " + session.getAttribute("name")
 				+ "\nemail: " + session.getAttribute("user"));
 		
-        for (UsersOnline us:sessions){
+        for (UserOnline us:sessions){
         	if(us.getId().equals(session.getId()))
         			sessions.remove(us);
         }
@@ -58,18 +58,18 @@ public class  SessionCounter implements HttpSessionListener {
 
 	}
 
-	public  List<UsersOnline> getSessions() {
+	public  List<UserOnline> getSessions() {
 		return sessions;
 	}
 
-	public   void setSessions(List<UsersOnline> sessions) {
+	public   void setSessions(List<UserOnline> sessions) {
 		this.sessions = sessions;
 	}
 
-	public  void updateSession(String id, UsersOnline uo) {
+	public  void updateSession(String id, UserOnline uo) {
 
-		for (Iterator<UsersOnline> it = sessions.iterator(); it.hasNext();) {
-			UsersOnline userOnl = it.next();
+		for (Iterator<UserOnline> it = sessions.iterator(); it.hasNext();) {
+			UserOnline userOnl = it.next();
 
 			if (userOnl.getId().equals(id)) {
 				sessions.remove(userOnl);

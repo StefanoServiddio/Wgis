@@ -1,8 +1,7 @@
 Funzionalità da aggiungere all'interno del progetto:
 1) Registrazione utente
-2) Gestione sessione web e mobile
+2) Gestione sessione mobile
 3) Gestione dei permessi utente amministratore
-4) Lista degli utenti
 5) Archiviazione Utenti
 6) Login Da mobile Android e trasmissione del bollettino Criticità: 
     -utilizzo delle Api Rest (Jersey libreria)
