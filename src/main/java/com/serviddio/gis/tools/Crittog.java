@@ -1,30 +1,43 @@
 package com.serviddio.gis.tools;
 
+import java.io.UnsupportedEncodingException;
+import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 
 import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
+//import javax.crypto.KeyGenerator;
+//import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Base64;
 
 public class Crittog {
-	private SecretKey key; 
+//	private SecretKey key; 
+	Key key;
 	private String initVector = "RandomInitVector"; 
     private static Crittog istance=null;
     
 	private Crittog() {
-		KeyGenerator keyGen;
-		try {
-			keyGen = KeyGenerator.getInstance("AES");
-			keyGen.init(128);
-		    key = keyGen.generateKey();
-			
-		} catch (NoSuchAlgorithmException e) {
+		
+		  try {
+			key = new SecretKeySpec("StefanoServiddio".getBytes("UTF-8"), "AES");
+		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+//		KeyGenerator keyGen;
+//		try {
+//			keyGen = KeyGenerator.getInstance("AES");
+//			keyGen.init(128);
+//		    key = keyGen.generateKey();
+//			
+//		} catch (NoSuchAlgorithmException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
 	}
 
@@ -56,23 +69,23 @@ public class Crittog {
 		return null;
 	}
 
-	public String decrypt(String encrypted) {
-		try {
-			
-			IvParameterSpec iv = new IvParameterSpec(initVector.getBytes("UTF-8"));
-			
-			Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
-			cipher.init(Cipher.DECRYPT_MODE, key, iv);
-
-			byte[] original = cipher.doFinal(Base64.decodeBase64(encrypted));
-
-			return new String(original);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-
-		return null;
-	}
+//	public String decrypt(String encrypted) {
+//		try {
+//			
+//			IvParameterSpec iv = new IvParameterSpec(initVector.getBytes("UTF-8"));
+//			
+//			Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+//			cipher.init(Cipher.DECRYPT_MODE, key, iv);
+//
+//			byte[] original = cipher.doFinal(Base64.decodeBase64(encrypted));
+//
+//			return new String(original);
+//		} catch (Exception ex) {
+//			ex.printStackTrace();
+//		}
+//
+//		return null;
+//	}
 	public static synchronized Crittog getIstance() {
         if (istance == null) {
         	istance = new Crittog();
@@ -82,7 +95,7 @@ public class Crittog {
 //	public static void main(String[] args) {
 //
 //		Crittog c = new Crittog();
-//		System.out.println(c.decrypt( c.encrypt( "")));
+//		System.out.println(c.decrypt( c.encrypt( "Stefano")));
 //	}
 
 }

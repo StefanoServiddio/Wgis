@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Properties;
 import java.sql.*;
 
-
 public class DAOUser {
 
 	private Connection conn;
@@ -19,6 +18,7 @@ public class DAOUser {
 	public void setName_last_user(String name_last_user) {
 		this.name_last_user = name_last_user;
 	}
+
 	public int getRole() {
 		return role;
 	}
@@ -62,16 +62,16 @@ public class DAOUser {
 			e.printStackTrace();
 		}
 	}
-    
-	//il check controlla se esiste l'utente e carica role
+
+	// il check controlla se esiste l'utente e carica role
 	public boolean check(String email, String password) {
 		try {
 			startConnection();
 			Statement stmt;
 			stmt = conn.createStatement();
 
-			String query = "SELECT nome, email, role FROM utente WHERE email=" + "\'" + email + "\'" + " AND " + "passw="
-					+ "\'" + password + "\'";
+			String query = "SELECT nome, email, role FROM utente WHERE email=" + "\'" + email + "\'" + " AND "
+					+ "passw=" + "\'" + password + "\'";
 			ResultSet res = stmt.executeQuery(query);
 			res.next();
 
@@ -95,8 +95,6 @@ public class DAOUser {
 		}
 
 	}
-
-	
 
 	public int countEl() {
 
@@ -166,32 +164,69 @@ public class DAOUser {
 		return utenti;
 
 	}
-	public int save(UserReg user){
+
+	public int save(UserReg user) {
 		startConnection();
 		Statement stmt;
-		
-			try {
-				stmt = conn.createStatement();
-			
-			String query = "INSERT INTO utente(nome,email,passw,role) VALUES ("
-			+"\'" + user.getName() + "\'" + ","
-			+"\'"+ user.getEmail()+"\'"+ "," 
-			+ "\'" + user.getPassword() + "\'"+ "," 
-			+ user.getRole() + ");";
-			int result=stmt.executeUpdate(query);
-			
+
+		try {
+			stmt = conn.createStatement();
+
+			String query = "INSERT INTO utente(nome,email,passw,role) VALUES (" + "\'" + user.getName() + "\'" + ","
+					+ "\'" + user.getEmail() + "\'" + "," + "\'" + user.getPassword() + "\'" + "," + user.getRole()
+					+ ");";
+			int result = stmt.executeUpdate(query);
+
 			stmt.close();
 			closeConn();
 			return result;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				
-				e.printStackTrace();
-				closeConn();
-				return 2;
-			}
-			
-		
-	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+			closeConn();
+			return 2;
+		}
+
 	}
+
+	public Boolean tooglePerm(String role, String email) {
+
+		startConnection();
+		Statement stmt;
+
+		try {
+			stmt = conn.createStatement();
+
+			if (role.equals("Admin")) {
+                email=email.trim();
+				String query = "update utente" +
+		                   " set role=1 where"
+		                   + " email='"+email+"\' ;";
+				
+				int a=stmt.executeUpdate(query);
+				System.out.println("valore query ritornato per Admin: "+a);
+				
+			} else {
+				email=email.trim();
+				String query = "UPDATE utente " +
+		                   "set role=0 where email='"+email+"\';";
+				int a=stmt.executeUpdate(query);
+				System.out.println("valore query ritornato per User: "+a);
+							
+			}
+			stmt.close();
+			closeConn();
+            return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+			closeConn();
+			return false;
+
+		}
+
+	}
+
 }

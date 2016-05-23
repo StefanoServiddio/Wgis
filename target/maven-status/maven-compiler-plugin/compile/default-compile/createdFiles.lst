@@ -11,5 +11,6 @@ com/serviddio/gis/model/User.class
 com/serviddio/gis/controller/ServletSuccess.class
 com/serviddio/gis/controller/ServletSuccess2.class
 com/serviddio/gis/controller/ListUsersAdmin.class
+com/serviddio/gis/controller/ServletPerm.class
 com/serviddio/gis/model/UserLog.class
 com/serviddio/gis/controller/ServletLogin.class

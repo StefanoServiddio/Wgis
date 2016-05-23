@@ -1,13 +1,13 @@
 Funzionalità da aggiungere all'interno del progetto:
-1) Registrazione utente
 2) Gestione sessione mobile
 3) Gestione dei permessi utente amministratore
 5) Archiviazione Utenti
 6) Login Da mobile Android e trasmissione del bollettino Criticità: 
     -utilizzo delle Api Rest (Jersey libreria)
 7) Visualizzazione delle criticità sul sito
-8) Criptazione password database
 8) Interazione tomcat SSL da configurare
+9) creare le partial JSP
+
 Facoltativo
 Infine Testing con Junit e Selenium
 
@@ -20,14 +20,12 @@ Funzionalità gia aggiunte:
  4)Implementazione mappe a tre livelli (Base Layer, Regioni e Province)
  5)Controllo Sessione (Da revisionare )
  6)Scraping della pagine protezione civile per la ricerca del Bollettino Criticità
- 
- Suggerimenti Sessione:
- Sessione è uno stato convenzionale tra client e server, consiste in multiple richieste e risposte tra client e server. 
- L'unico modo per mantenere la sessione è quando alcune informazioni univoche riguardo al sessione (session id) è
- trasferita tra server e client in ogni richieste e risposte.
- 
+ 7) Registrazione utente
+ 8)Crittazione password
 
-
+Cose da Completare:
+N.B.: Aggiornare la lista delle sessioni attive durante la modifica dei ruoli
+ed ovviamente tener conto con relativo con redirezione degli utente online
  
  
   

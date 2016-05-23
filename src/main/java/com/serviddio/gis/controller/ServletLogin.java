@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.serviddio.gis.model.DAOUser;
 import com.serviddio.gis.model.UserLog;
 import com.serviddio.gis.model.UserOnline;
+import com.serviddio.gis.tools.Crittog;
 
 /**
  * Servlet implementation class ServletLogin
@@ -69,7 +70,8 @@ public class ServletLogin extends HttpServlet {
 		
 			
 			DAOUser gis = new DAOUser();
-			Boolean checked = gis.check(request.getParameter("email"), request.getParameter("password"));
+			
+			Boolean checked = gis.check(request.getParameter("email"), Crittog.getIstance().encrypt(request.getParameter("password")));
 			UserLog ut = new UserLog(request.getParameter("email"), request.getParameter("password"));
 			ut.setName(gis.getName_last_user());
 			ut.setRole(gis.getRole());

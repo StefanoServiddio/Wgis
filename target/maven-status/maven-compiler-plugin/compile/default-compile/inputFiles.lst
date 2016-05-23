@@ -3,6 +3,7 @@
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/model/DAOUser.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/controller/ListUsersAdmin.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/controller/SessionCounter.java
+/home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/controller/ServletPerm.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/model/User.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/tools/Crittog.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/tools/Scraping.java

@@ -37,6 +37,8 @@ public class ListUsersAdmin extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		UserLog usr=(UserLog)request.getSession().getAttribute("user");
+		if(usr!=null && usr.isAdmin()){
 		DAOUser pickuser = new DAOUser();
 
 		List<UserLog> usersList = pickuser.getUsersList();
@@ -45,6 +47,12 @@ public class ListUsersAdmin extends HttpServlet {
 		if (pickuser.countEl() > -1)
 			request.setAttribute("numUtenti", pickuser.countEl());
 		request.getRequestDispatcher("/WEB-INF/listUsers.jsp").forward(request, response);
+		}
+		else
+		{
+			response.sendRedirect("./Gis");
+		}
+	
 	}
 
 	/**
