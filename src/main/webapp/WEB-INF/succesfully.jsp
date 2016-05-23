@@ -1,4 +1,4 @@
-<%@ page import="java.io.*,java.util.*"%>
+<%@ page import="java.io.*,java.util.*,com.serviddio.gis.model.*"%>
 <html>
 <head>
 <link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -9,14 +9,14 @@
 
 </head>
 <body>
-<% Object value =request.getSession().getAttribute("user");	
+<% UserLog utente =(UserLog)request.getSession().getAttribute("user");	
  
 	%>
 	<div class="container" align="center" >
 		<h3>Login Successful</h3>
 		
 			<p>you will be redirected into 5 sec </p>
-		<p><%=value%> </p>
+		<p><%=utente.getEmail()%> </p>
 		
 
 		<button class="btn btn-default btn-danger" type="button"	onclick="stop()" >stop </button> 

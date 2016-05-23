@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.io.File"%>
+<%@ page import="com.serviddio.gis.model.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +26,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <%
-	Object value = request.getSession().getAttribute("user");
+	UserLog utente = (UserLog)request.getSession().getAttribute("user");
 %>
 
 
@@ -57,11 +58,14 @@
         <li class="active"><a href="./index.jsp">Home <span class="sr-only">(current)</span></a></li>
         <li><a href="./Login">Sign in</a></li>
          <li><a href="#">Sign up</a></li>
+         <% if(utente!=null && utente.isAdmin()){%>
+          <li><a href="./ListUsers">ListUser</a></li>
+          <%} %>
       </ul>
-      <%if(value!=null) {%>
+      <%if(utente!=null) {%>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="./Logout">Logout</a></li>
-       <li><p id="signed_as" class="navbar-text">Signed as <%=value %></p></li>
+       <li><p id="signed_as" class="navbar-text">Signed as <%=utente.getEmail() %></p></li>
       </ul>
       <%} %>
     </div><!-- /.navbar-collapse -->

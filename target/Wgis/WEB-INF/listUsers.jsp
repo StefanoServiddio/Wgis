@@ -45,6 +45,7 @@
 								<th>Name</th>
 								<th>Email</th>
 								<th>Password</th>
+								<th> Role</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -62,6 +63,7 @@
 								<td><%= usr.getName() %></td>
 								<td><%= usr.getEmail() %></td>
 								<td><%= usr.getPassword() %></td>
+								<td><%= usr.returnRole() %></td>
 							</tr>
 							
 							<%}} %>
@@ -120,6 +122,7 @@
 								<th>Session ID</th>
 								<th>Name</th>
 								<th>Email</th>
+								<th> Role </th>
 							</tr>
 						</thead>
 						<tbody>
@@ -133,6 +136,7 @@
 								<td><%=uo.getName()%></td>
 
 								<td><%=uo.getEmail()%></td>
+								<td><%= uo.returnRole() %></td>
 
 							</tr>
 

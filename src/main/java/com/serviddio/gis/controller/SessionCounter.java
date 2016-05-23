@@ -28,11 +28,11 @@ public class  SessionCounter implements HttpSessionListener {
 		UserOnline user = null;
 		HttpSession session = event.getSession();
 		if (session.getAttribute("user") == null || session.getAttribute("name") == null)
-			user = new UserOnline(session.getId(), "", "");
+			user = new UserOnline(session.getId(), "", "",-1);
 
 		else
 			user = new UserOnline(session.getId(), (String) session.getAttribute("name"),
-					(String) session.getAttribute("user"));
+					(String) session.getAttribute("user"), (Integer)session.getAttribute("role"));
 		sessions.add(user);
 		System.out.println("Dimensione session aggiornata: " + sessions.size());
 		session.setAttribute(SessionCounter.COUNTER, this);
@@ -45,7 +45,7 @@ public class  SessionCounter implements HttpSessionListener {
 		synchronized(this){
 		HttpSession session = event.getSession();
 		System.out.println("Distruggo l'utente: " + session.getId() + "\nnome: " + session.getAttribute("name")
-				+ "\nemail: " + session.getAttribute("user"));
+				+ "\nemail: " + session.getAttribute("user")+ "\nruolo: "+(Integer)session.getAttribute("role"));
 		
         for (UserOnline us:sessions){
         	if(us.getId().equals(session.getId()))

@@ -11,6 +11,7 @@ public class DAOUser {
 
 	private Connection conn;
 	private String name_last_user = "";
+	private int role;
 
 	public String getName_last_user() {
 		return name_last_user;
@@ -18,6 +19,13 @@ public class DAOUser {
 
 	public void setName_last_user(String name_last_user) {
 		this.name_last_user = name_last_user;
+	}
+	public int getRole() {
+		return role;
+	}
+
+	public void setRole(int role) {
+		this.role = role;
 	}
 
 	public void startConnection() {
@@ -55,20 +63,22 @@ public class DAOUser {
 			e.printStackTrace();
 		}
 	}
-
+    
+	//il check controlla se esiste l'utente e carica role
 	public boolean check(String email, String password) {
 		try {
 			startConnection();
 			Statement stmt;
 			stmt = conn.createStatement();
 
-			String query = "SELECT nome, email FROM utente WHERE email=" + "\'" + email + "\'" + " AND " + "passw="
+			String query = "SELECT nome, email, role FROM utente WHERE email=" + "\'" + email + "\'" + " AND " + "passw="
 					+ "\'" + password + "\'";
 			ResultSet res = stmt.executeQuery(query);
 			res.next();
 
 			if (res.getRow() > 0) {
 				setName_last_user(res.getString("nome"));
+				setRole(res.getInt("role"));
 				System.out.println("Trovato!");
 				stmt.close();
 				closeConn();
@@ -86,6 +96,8 @@ public class DAOUser {
 		}
 
 	}
+
+	
 
 	public int countEl() {
 
@@ -129,7 +141,7 @@ public class DAOUser {
 				usr.setEmail(res.getString("email"));
 
 				usr.setPassword(res.getString("passw"));
-
+				usr.setRole(res.getInt("role"));
 				utenti.add(usr);
 			}
 			stmt.close();

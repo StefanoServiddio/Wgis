@@ -72,13 +72,14 @@ public class ServletLogin extends HttpServlet {
 			Boolean checked = gis.check(request.getParameter("email"), request.getParameter("password"));
 			UserLog ut = new UserLog(request.getParameter("email"), request.getParameter("password"));
 			ut.setName(gis.getName_last_user());
+			ut.setRole(gis.getRole());
 
 			if (checked) {
 				HttpSession session = request.getSession();
-				session.setAttribute("user", request.getParameter("email"));
-				session.setAttribute("name", ut.getName());
-				UserOnline us=new UserOnline(session.getId(),(String)session.getAttribute("name"),
-						(String)session.getAttribute("user"));
+				session.setAttribute("user", ut);
+				
+				UserOnline us=new UserOnline(session.getId(),ut.getName(),
+						ut.getEmail(),ut.getRole());
 				SessionCounter contatoreSessione= (SessionCounter)session.getAttribute(SessionCounter.COUNTER);
 				contatoreSessione.updateSession(session.getId(), us);
 			
