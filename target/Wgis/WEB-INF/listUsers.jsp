@@ -15,7 +15,8 @@
 <link rel="stylesheet"
 	href="http://bootsnipp.com/dist/bootsnipp.min.css?ver=7d23ff901039aef6293954d33d23c066">
 <link href="./assets/css/userslist.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Admin List Users</title>
@@ -31,8 +32,10 @@
 	<div class="container">
 
 		<div class="row">
-			<div class="col-md-3"></div>
-			<div class="col-md-6">
+			<div class=" col-sm-2 col-md-2  col-lg-2  "></div>
+			<div class="col-sm-8 col-md-8 col-lg-8">
+				<a class="btn btn-default" href="./Gis" role="button">Back to
+					WGIS</a> <a class="btn btn-default" href="./ListUsers" role="button">Update</a>
 				<div class="panel panel-success">
 					<div class="panel-heading">
 						<h3 class="panel-title">
@@ -50,6 +53,7 @@
 								<th>Password</th>
 								<th>Role</th>
 								<th>Options</th>
+								
 							</tr>
 						</thead>
 						<tbody>
@@ -65,30 +69,37 @@
 							<tr class="utenti_db">
 								<td><%=count%></td>
 								<td><%=usr.getName()%></td>
-								<td><%=usr.getEmail()%> </td>
+								<td><%=usr.getEmail()%></td>
 								<td><%=usr.getPassword()%></td>
 								<td><%=usr.returnRole()%></td>
-								<%if(usr.isAdmin()) {%>
-								<td><select class="form-control input-sm role" >
+								<%
+									if (usr.isAdmin()) {
+								%>
+								<td><select class="form-control input-sm role">
 										<option value="Admin">Admin</option>
 										<option value="User">User</option>
 
 								</select></td>
-								<%}else{ %>
-								<td><select class="form-control input-sm role" >
+								<%
+									} else {
+								%>
+								<td><select class="form-control input-sm role">
 										<option value="User">User</option>
 										<option value="Admin">Admin</option>
 								</select></td>
 
-								<%} %>
-								
+								<%
+									}
+								%>
+
 							</tr>
 
 							<%
 								}
 								}
 							%>
-                         <script type="text/javascript" src="/Wgis/assets/js/selectRole.js"></script>
+							<script type="text/javascript"
+								src="/Wgis/assets/js/selectRole.js"></script>
 						</tbody>
 					</table>
 				</div>
@@ -121,9 +132,9 @@
 
 
 		<div class="row">
-			<div class="col-md-3"></div>
+			<div class="col-sm-2 col-md-2 col-lg-2"></div>
 
-			<div class="col-md-6">
+			<div class="col-sm-8 col-md-8 col-lg-8">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h3 class="panel-title">
@@ -180,7 +191,7 @@
 	<%
 		} else {
 	%>
-	<h2>Attenzione Lista Utenti inesistente</h2>
+	<h2 align="center">Attenzione Lista Utenti inesistente</h2>
 	<%
 		}
 	%>

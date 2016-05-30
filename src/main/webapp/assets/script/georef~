@@ -1,0 +1,12 @@
+!#/bin/bash
+!#/bin/sh
+
+
+DIRECTORY="/home/stefano/Immagini/allertaOggiGeo";
+echo "Checking if directory exist"
+if [ ! -d "$DIRECTORY" ]
+then
+	mkdir /home/stefano/Immagini/allertaOggiGeo  
+fi
+
+./script_gdal

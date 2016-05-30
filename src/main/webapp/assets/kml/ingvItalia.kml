@@ -1,0 +1,883 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+  <Document>
+    <name>INGV, ISIDe real-time earthquakes</name>
+    <open>1</open>
+    <ScreenOverlay>
+      <name>ISIDe Logo</name>
+      <overlayXY x="1" y="0" xunits="fraction" yunits="pixels"/>
+      <screenXY x=".2" y=".93" xunits="fraction" yunits="fraction"/>
+      <rotationXY x="0" y="0" xunits="pixels" yunits="pixels"/>
+      <size x="0" y="0" xunits="pixels" yunits="pixels"/>
+      <Icon>
+        <href>http://iside.rm.ingv.it/images/iside.png</href>
+      </Icon>
+    </ScreenOverlay>
+    <ScreenOverlay>
+      <name>Legend</name>
+      <visibility>1</visibility>
+      <overlayXY x="1" y="0" xunits="pixels" yunits="pixels"/>
+      <screenXY x="x.28" y="0.12" fraction="fraction" yunits="fraction"/>
+      <rotationXY x="0" y="0" xunits="pixels" yunits="pixels"/>
+      <size x="0" y="0" xunits="pixels" yunits="pixels"/>
+      <Icon>
+        <href>http://iside.rm.ingv.it/images/legend_kml.png</href>
+      </Icon>
+    </ScreenOverlay>
+    <Style id="red-active">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/red.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="red-inactive">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/red.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="star_red-active">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/star_red.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="star_red-inactive">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/star_red.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="blue-active">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/blue.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="blue-inactive">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/blue.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="star_blue-active">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/star_blue.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="star_blue-inactive">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/star_blue.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="green-active">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/green.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="green-inactive">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/green.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="star_green-active">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/star_green.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="star_green-inactive">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/star_green.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="orange-active">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/orange.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="orange-inactive">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/orange.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="star_orange-active">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/star_orange.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="star_orange-inactive">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/star_orange.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="purple-active">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/purple.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="purple-inactive">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/purple.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="star_purple-active">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/star_purple.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="star_purple-inactive">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/star_purple.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="yellow-active">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/yellow.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="yellow-inactive">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/yellow.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="star_yellow-active">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/star_yellow.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="star_yellow-inactive">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/star_yellow.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="station_on-active">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/station_green.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="station_on-inactive">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/station_green.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="station_off-active">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/station_yellow.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="station_off-inactive">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/station_yellow.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="station_closed-active">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/station_red.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="station_closed-inactive">
+      <IconStyle>
+        <Icon>
+          <href>http://iside.rm.ingv.it/images/station_red.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="red">
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#red-active</styleUrl>
+      </Pair>
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#red-inactive</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="star_red">
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#star_red-active</styleUrl>
+      </Pair>
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#star_red-inactive</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="blue">
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#blue-active</styleUrl>
+      </Pair>
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#blue-inactive</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="star_blue">
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#star_blue-active</styleUrl>
+      </Pair>
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#star_blue-inactive</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="green">
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#green-active</styleUrl>
+      </Pair>
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#green-inactive</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="star_green">
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#star_green-active</styleUrl>
+      </Pair>
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#star_green-inactive</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="orange">
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#orange-active</styleUrl>
+      </Pair>
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#orange-inactive</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="star_orange">
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#star_orange-active</styleUrl>
+      </Pair>
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#star_orange-inactive</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="purple">
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#purple-active</styleUrl>
+      </Pair>
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#purple-inactive</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="star_purple">
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#star_purple-active</styleUrl>
+      </Pair>
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#star_purple-inactive</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="yellow">
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#yellow-active</styleUrl>
+      </Pair>
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#yellow-inactive</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="star_yellow">
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#star_yellow-active</styleUrl>
+      </Pair>
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#star_yellow-inactive</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="station_on">
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#station_on-active</styleUrl>
+      </Pair>
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#station_on-inactive</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="station_off">
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#station_off-active</styleUrl>
+      </Pair>
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#station_off-inactive</styleUrl>
+      </Pair>
+    </StyleMap>
+    <StyleMap id="station_closed">
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#station_closed-active</styleUrl>
+      </Pair>
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#station_closed-inactive</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <Placemark>
+        <name>ML 2.1 - 2016-05-19 00:13:31 UTC</name>
+        <styleUrl>#yellow</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-19 00:13:31 UTC</li><li>Depth (Km): 15.7</li><li>Magnitude (ML): 2.1</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>15.744, 41.7157, 15.7</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.2 - 2016-05-19 00:54:52 UTC</name>
+        <styleUrl>#orange</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-19 00:54:52 UTC</li><li>Depth (Km): 10.0</li><li>Magnitude (ML): 2.2</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>16.2443, 36.5402, 10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.0 - 2016-05-20 00:02:55 UTC</name>
+        <styleUrl>#orange</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-20 00:02:55 UTC</li><li>Depth (Km): 10.0</li><li>Magnitude (ML): 2.0</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>14.8838, 41.1257, 10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.4 - 2016-05-20 00:53:36 UTC</name>
+        <styleUrl>#green</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-20 00:53:36 UTC</li><li>Depth (Km): 37.9</li><li>Magnitude (ML): 2.4</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>16.0875, 40.5527, 37.9</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.1 - 2016-05-20 03:38:53 UTC</name>
+        <styleUrl>#yellow</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-20 03:38:53 UTC</li><li>Depth (Km): 10.8</li><li>Magnitude (ML): 2.1</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>14.917, 41.168, 10.8</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.3 - 2016-05-20 04:02:04 UTC</name>
+        <styleUrl>#yellow</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-20 04:02:04 UTC</li><li>Depth (Km): 11.1</li><li>Magnitude (ML): 2.3</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>14.9022, 41.1408, 11.1</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.6 - 2016-05-21 03:49:38 UTC</name>
+        <styleUrl>#orange</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-21 03:49:38 UTC</li><li>Depth (Km): 10.0</li><li>Magnitude (ML): 2.6</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>7.4608, 46.2027, 10.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.1 - 2016-05-21 05:00:45 UTC</name>
+        <styleUrl>#yellow</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-21 05:00:45 UTC</li><li>Depth (Km): 14.5</li><li>Magnitude (ML): 2.1</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>15.5473, 40.7617, 14.5</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 3.3 - 2016-05-21 14:27:43 UTC</name>
+        <styleUrl>#orange</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-21 14:27:43 UTC</li><li>Depth (Km): 9.2</li><li>Magnitude (ML): 3.3</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.4</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>14.123, 37.7812, 9.2</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.7 - 2016-05-21 14:29:37 UTC</name>
+        <styleUrl>#yellow</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-21 14:29:37 UTC</li><li>Depth (Km): 20.0</li><li>Magnitude (ML): 2.7</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>11.5532, 44.274, 20.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 3.0 - 2016-05-21 15:53:06 UTC</name>
+        <styleUrl>#orange</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-21 15:53:06 UTC</li><li>Depth (Km): 8.0</li><li>Magnitude (ML): 3.0</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.4</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>14.1248, 37.8007, 8.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.7 - 2016-05-21 19:35:09 UTC</name>
+        <styleUrl>#blue</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-21 19:35:09 UTC</li><li>Depth (Km): 285.2</li><li>Magnitude (ML): 2.7</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>14.9088, 38.5878, 285.2</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.7 - 2016-05-22 01:33:54 UTC</name>
+        <styleUrl>#blue</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-22 01:33:54 UTC</li><li>Depth (Km): 171.6</li><li>Magnitude (ML): 2.7</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>15.7192, 38.7565, 171.6</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.3 - 2016-05-22 07:08:52 UTC</name>
+        <styleUrl>#orange</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-22 07:08:52 UTC</li><li>Depth (Km): 8.1</li><li>Magnitude (ML): 2.3</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>14.1735, 37.8037, 8.1</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.1 - 2016-05-22 19:39:01 UTC</name>
+        <styleUrl>#blue</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-22 19:39:01 UTC</li><li>Depth (Km): 115.8</li><li>Magnitude (ML): 2.1</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>15.4058, 38.4107, 115.8</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.3 - 2016-05-22 20:24:45 UTC</name>
+        <styleUrl>#green</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-22 20:24:45 UTC</li><li>Depth (Km): 32.1</li><li>Magnitude (ML): 2.3</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>16.5617, 40.8148, 32.1</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.1 - 2016-05-23 01:21:40 UTC</name>
+        <styleUrl>#orange</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-23 01:21:40 UTC</li><li>Depth (Km): 7.6</li><li>Magnitude (ML): 2.1</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>14.2532, 37.2683, 7.6</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.1 - 2016-05-23 17:23:03 UTC</name>
+        <styleUrl>#yellow</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-23 17:23:03 UTC</li><li>Depth (Km): 10.3</li><li>Magnitude (ML): 2.1</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>13.3452, 42.4043, 10.3</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.2 - 2016-05-23 21:10:42 UTC</name>
+        <styleUrl>#blue</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-23 21:10:42 UTC</li><li>Depth (Km): 80.7</li><li>Magnitude (ML): 2.2</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>15.5475, 38.8872, 80.7</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.8 - 2016-05-23 21:38:19 UTC</name>
+        <styleUrl>#orange</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-23 21:38:19 UTC</li><li>Depth (Km): 8.1</li><li>Magnitude (ML): 2.8</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>12.8812, 42.4582, 8.1</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.0 - 2016-05-24 17:02:58 UTC</name>
+        <styleUrl>#green</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-24 17:02:58 UTC</li><li>Depth (Km): 23.2</li><li>Magnitude (ML): 2.0</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>15.8758, 41.7347, 23.2</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.5 - 2016-05-24 19:46:26 UTC</name>
+        <styleUrl>#orange</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-24 19:46:26 UTC</li><li>Depth (Km): 9.9</li><li>Magnitude (ML): 2.5</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>7.4862, 44.2595, 9.9</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.4 - 2016-05-24 23:02:18 UTC</name>
+        <styleUrl>#orange</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-24 23:02:18 UTC</li><li>Depth (Km): 9.7</li><li>Magnitude (ML): 2.4</li><li>Author: SURVEY-INGV-CT</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>14.272, 38.538, 9.7</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.1 - 2016-05-25 03:07:24 UTC</name>
+        <styleUrl>#orange</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-25 03:07:24 UTC</li><li>Depth (Km): 5.3</li><li>Magnitude (ML): 2.1</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>13.487, 46.0573, 5.3</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.1 - 2016-05-25 16:27:41 UTC</name>
+        <styleUrl>#yellow</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-25 16:27:41 UTC</li><li>Depth (Km): 18.0</li><li>Magnitude (ML): 2.1</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>11.5217, 44.3232, 18.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.4 - 2016-05-25 19:20:43 UTC</name>
+        <styleUrl>#orange</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-25 19:20:43 UTC</li><li>Depth (Km): 2.2</li><li>Magnitude (ML): 2.4</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>15.5678, 41.8882, 2.2</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.3 - 2016-05-25 20:45:50 UTC</name>
+        <styleUrl>#orange</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-25 20:45:50 UTC</li><li>Depth (Km): 8.7</li><li>Magnitude (ML): 2.3</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>11.4657, 44.8008, 8.7</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.1 - 2016-05-25 21:08:01 UTC</name>
+        <styleUrl>#green</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-25 21:08:01 UTC</li><li>Depth (Km): 47.7</li><li>Magnitude (ML): 2.1</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>15.9832, 38.9072, 47.7</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mw 3.8 - 2016-05-25 22:10:28 UTC</name>
+        <styleUrl>#yellow</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-25 22:10:28 UTC</li><li>Depth (Km): 18.7</li><li>Magnitude (Mw): 3.8</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.4</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>15.7873, 36.8078, 18.7</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.6 - 2016-05-26 00:57:26 UTC</name>
+        <styleUrl>#blue</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-26 00:57:26 UTC</li><li>Depth (Km): 125.0</li><li>Magnitude (ML): 2.6</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>15.5093, 38.4915, 125.0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ML 2.5 - 2016-05-26 12:40:16 UTC</name>
+        <styleUrl>#orange</styleUrl>
+        <description><![CDATA[<ul><li>Origin Time (UTC): 2016-05-26 12:40:16 UTC</li><li>Depth (Km): 9.1</li><li>Magnitude (ML): 2.5</li><li>Author: SURVEY-INGV</li></ul>]]></description>
+        <Style>
+          <IconStyle>
+            <scale>0.3</scale>
+          </IconStyle>
+        </Style>
+        <Point>
+          <coordinates>14.4658, 38.5505, 9.1</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

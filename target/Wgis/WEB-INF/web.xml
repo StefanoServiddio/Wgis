@@ -67,6 +67,25 @@
   	<description></description>
   	<servlet-class>com.serviddio.gis.controller.ServletPerm</servlet-class>
   </servlet>
+  
+  
+  
+  
+  
+   <servlet>
+		<servlet-name>Jersey Web Application</servlet-name>
+		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Jersey Web Application</servlet-name>
+		<url-pattern>/servRest/*</url-pattern>
+	</servlet-mapping>
+  
+  
+  
+  
+  
  
   <servlet-mapping>
   	<servlet-name>ServletLogin</servlet-name>
@@ -104,5 +123,9 @@
   	<servlet-name>ServletPerm</servlet-name>
   	<url-pattern>/Perm</url-pattern>
   </servlet-mapping>
+  
+  
+  
+
   
 </web-app>

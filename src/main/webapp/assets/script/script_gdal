@@ -1,0 +1,30 @@
+#!/bin/bash
+
+echo "eseguo georeferenziazione gdal_translate"
+File1="/home/stefano/Immagini/allertaOggiGeo.tif";
+if [ -e "$File1"]
+then
+	echo "il file tif esiste"
+	rm -f $File1
+	echo "file eliminato"
+  	ls -l 
+else
+	echo "il file non esiste"
+fi
+
+echo "è necessario assegnare un sistema di riferimento EPSG:3857 all'immagine acquisita"
+
+gdal_translate -of GTiff -gcp 46.2484 129.362 737802 5.63856e+06 -gcp 121.768 62.3388 939919 5.85458e+06 -gcp 159.176 59.4895 1.04187e+06 5.86207e+06 -gcp 278.468 31.1886 1.36162e+06 5.95546e+06 -gcp 345.883 105.598 1.54342e+06 5.71734e+06 -gcp 442.397 289.576 1.79865e+06 5.14557e+06 -gcp 538.345 375.324 2.06101e+06 4.88463e+06 -gcp 532.353 393.082 2.04176e+06 4.83829e+06 -gcp 437.571 484.341 1.78867e+06 4.57094e+06 -gcp 398.609 548.242 1.68387e+06 4.39342e+06 -gcp 290.241 481.933 1.39085e+06 4.57736e+06 -gcp 130.919 438.194 968080 4.70783e+06 -gcp 117.074 327.493 925304 5.02936e+06 -gcp 153.93 319.848 1.03011e+06 5.04861e+06 "/home/stefano/workspace/Wgis/src/main/webapp/assets/img/allertaOggiEdit.jpg" "/home/stefano/Immagini/allertaOggiGeo.tif"
+
+
+echo " allertaOggiEdit.tif --->>>  allertaOggiGeo.tif OK"
+gdalwarp -r cubicspline -tps -co COMPRESS=NONE  -tr 470.000000 -768.000000 "/home/stefano/Immagini/allertaOggiGeo.tif" "/home/stefano/Immagini/allertaOggiConv.tif"
+
+echo "gdalwarp allertaOggiGeo.tif ---->>> allertaOggiConv.tif OK"
+gdalinfo /home/stefano/Immagini/allertaOggiConv.tif
+
+gdal2tiles.py -z 1-8 /home/stefano/workspace/Wgis/src/main/webapp/assets/img/allertaOggiConv.tif /home/stefano/Immagini/allertaOggiGeo
+
+echo "gdal2tiles success"
+
+echo " script Complete"

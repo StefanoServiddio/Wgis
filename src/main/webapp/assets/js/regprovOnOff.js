@@ -15,8 +15,22 @@ $(document).ready(function(){
         
 
       });
+      
+      $('#allerta_meteo').click(function(){
+          
+
+    	  allerta_layer.setVisible(!allerta_layer.getVisible())
+        
+
+      });
+    
+
+  
+
     
 
      });
+
+
 
 

@@ -17,10 +17,10 @@
 	<div class="container-fluid" style="padding: 12px;" >
 		<div class="row">
 		
-			<div class="col-md-4 col-md-offset-4">
+			<div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title">WGIS Login</h3>
+						<h3 class="panel-title"><a href="./Gis">WGIS</a> Login</h3>
 					</div>
 					<div class="panel-body">
 					<div class="panel-heading">

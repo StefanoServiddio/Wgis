@@ -1,10 +1,10 @@
 Funzionalità da aggiungere all'interno del progetto:
 2) Gestione sessione mobile
-3) Gestione dei permessi utente amministratore
+
 5) Archiviazione Utenti
 6) Login Da mobile Android e trasmissione del bollettino Criticità: 
     -utilizzo delle Api Rest (Jersey libreria)
-7) Visualizzazione delle criticità sul sito
+
 8) Interazione tomcat SSL da configurare
 9) creare le partial JSP
 

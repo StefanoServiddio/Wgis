@@ -18,6 +18,11 @@
 	background: blue;
 	
 }
+
+#allerta_meteo {
+	background: green;
+	
+}
  button, textarea {
 	color: white;
 	
