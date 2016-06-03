@@ -7,16 +7,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Wgis Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+
+
+
 	<dependencies>
 
 
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.9</version>
-			<scope>test</scope>
 
-		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-htmlunit-driver</artifactId>
@@ -84,9 +81,26 @@
 		</dependency>
 
 
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- http://mvnrepository.com/artifact/nl.cloudfarming.client/lib-geotools -->
+		<dependency>
+			<groupId>nl.cloudfarming.client</groupId>
+			<artifactId>lib-geotools</artifactId>
+			<version>2.7.2.2</version>
+		</dependency>
+
+
+
 
 	</dependencies>
 	<build>
 		<finalName>Wgis</finalName>
 	</build>
+
+
 </project>

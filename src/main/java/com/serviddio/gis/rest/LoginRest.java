@@ -1,9 +1,7 @@
 package com.serviddio.gis.rest;
 
-import java.io.InputStream;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -11,12 +9,12 @@ import javax.ws.rs.Produces;
 import org.json.*;
 
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+
 
 import com.serviddio.gis.model.DAOUser;
 import com.serviddio.gis.tools.Crittog;
 
-import net.sourceforge.htmlunit.corejs.javascript.json.JsonParser;
+
 
 @Path("resource")
 public class LoginRest {
