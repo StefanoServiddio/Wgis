@@ -155,6 +155,7 @@
 								<th>Name</th>
 								<th>Email</th>
 								<th>Role</th>
+								<th>Mobile</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -169,6 +170,11 @@
 
 								<td><%=uo.getEmail()%></td>
 								<td><%=uo.returnRole()%></td>
+								<%if(uo.isMobile()){ %>
+									<td>online</td>
+								<%}else{ %>
+								<td>offline</td>
+								<%} %>
 
 							</tr>
 

@@ -45,8 +45,8 @@ public class ServletSignUp extends HttpServlet {
 		String password = request.getParameter("password");
 		UserReg user = new UserReg(name, email, password);
 		
-		DAOUser salva = new DAOUser();
-		int result = salva.save(user);
+		
+		int result = DAOUser.getIstance().saveUsr(user);
 		if (result==1)
 		{
 			System.out.println("Registrazione Completata con Successo");

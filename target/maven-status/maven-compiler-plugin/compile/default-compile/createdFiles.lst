@@ -2,7 +2,9 @@ com/serviddio/gis/tools/Crittog.class
 com/serviddio/gis/rest/GeoPosRest.class
 com/serviddio/gis/controller/SessionCounter.class
 com/serviddio/gis/controller/ServletGis.class
+com/serviddio/gis/rest/SetIntervallAllert.class
 com/serviddio/gis/controller/ServletLogout.class
+com/serviddio/gis/controller/PositionList.class
 com/serviddio/gis/tools/Scraping.class
 com/serviddio/gis/tools/TransformPoints.class
 com/serviddio/gis/rest/LoginRest.class
@@ -14,7 +16,7 @@ com/serviddio/gis/model/UserReg.class
 com/serviddio/gis/model/User.class
 com/serviddio/gis/controller/ServletSuccess.class
 com/serviddio/gis/tools/ProcessImage.class
-com/serviddio/gis/controller/ServletSuccess2.class
+com/serviddio/gis/model/UserGeo.class
 com/serviddio/gis/controller/ListUsersAdmin.class
 com/serviddio/gis/controller/ServletPerm.class
 com/serviddio/gis/model/UserLog.class

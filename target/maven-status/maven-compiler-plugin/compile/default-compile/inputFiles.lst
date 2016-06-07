@@ -1,10 +1,12 @@
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/controller/ServletLogin.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/model/UserOnline.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/model/DAOUser.java
+/home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/controller/PositionList.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/controller/ListUsersAdmin.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/rest/GeoPosRest.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/controller/SessionCounter.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/controller/ServletPerm.java
+/home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/rest/SetIntervallAllert.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/model/User.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/tools/Crittog.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/tools/Scraping.java
@@ -16,6 +18,6 @@
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/rest/LoginRest.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/model/UserReg.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/controller/ServletLogout.java
-/home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/controller/ServletSuccess2.java
+/home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/model/UserGeo.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/tools/TransformPoints.java
 /home/stefano/workspace/Wgis/src/main/java/com/serviddio/gis/controller/ServletGis.java

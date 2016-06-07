@@ -3,7 +3,7 @@ package com.serviddio.gis.controller;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -69,12 +69,12 @@ public class ServletLogin extends HttpServlet {
 	
 		
 			
-			DAOUser gis = new DAOUser();
 			
-			Boolean checked = gis.check(request.getParameter("email"), Crittog.getIstance().encrypt(request.getParameter("password")));
+			
+			Boolean checked = DAOUser.getIstance().check(request.getParameter("email"), Crittog.getIstance().encrypt(request.getParameter("password")));
 			UserLog ut = new UserLog(request.getParameter("email"), request.getParameter("password"));
-			ut.setName(gis.getName_last_user());
-			ut.setRole(gis.getRole());
+			ut.setName(DAOUser.getIstance().getName_last_user());
+			ut.setRole(DAOUser.getIstance().getRole());
 
 			if (checked) {
 				HttpSession session = request.getSession();
@@ -85,7 +85,7 @@ public class ServletLogin extends HttpServlet {
 				SessionCounter contatoreSessione= (SessionCounter)session.getAttribute(SessionCounter.COUNTER);
 				contatoreSessione.updateSession(session.getId(), us);
 			
- 	           session.setMaxInactiveInterval(30*60);
+ 	           session.setMaxInactiveInterval(10*60);
 				response.sendRedirect("./Success");
 			
 			} else {

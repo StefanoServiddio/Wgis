@@ -1,12 +1,13 @@
 Funzionalità da aggiungere all'interno del progetto:
-2) Gestione sessione mobile
 
-5) Archiviazione Utenti
-6) Login Da mobile Android e trasmissione del bollettino Criticità: 
-    -utilizzo delle Api Rest (Jersey libreria)
+2) Mostrare ultimo collegamento utenti
+
+)Archiviazione/Disattivazione utente
+Mostrare posizione mobile utente sulla mappa
+
 
 8) Interazione tomcat SSL da configurare
-9) creare le partial JSP
+
 
 Facoltativo
 Infine Testing con Junit e Selenium
@@ -22,6 +23,7 @@ Funzionalità gia aggiunte:
  6)Scraping della pagine protezione civile per la ricerca del Bollettino Criticità
  7) Registrazione utente
  8)Crittazione password
+ 9)Trasmissione Mobile Dati Lat Lon
 
 Cose da Completare:
 N.B.: Aggiornare la lista delle sessioni attive durante la modifica dei ruoli

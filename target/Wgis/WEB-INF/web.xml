@@ -43,12 +43,7 @@
   	<description></description>
   	<servlet-class>com.serviddio.gis.controller.IndexServlet</servlet-class>
   </servlet>
-  <servlet>
-  	<servlet-name>ServletSuccess2</servlet-name>
-  	<display-name>ServletSuccess2</display-name>
-  	<description></description>
-  	<servlet-class>com.serviddio.gis.controller.ServletSuccess2</servlet-class>
-  </servlet>
+  
   <servlet>
   	<servlet-name>ListUsersAdmin</servlet-name>
   	<display-name>ListUsersAdmin</display-name>
@@ -77,6 +72,13 @@
 		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+   <servlet>
+   	<servlet-name>PositionList</servlet-name>
+   	<display-name>PositionList</display-name>
+   	<description></description>
+   	<servlet-class>com.serviddio.gis.controller.PositionList</servlet-class>
+   </servlet>
+  
 	<servlet-mapping>
 		<servlet-name>Jersey Web Application</servlet-name>
 		<url-pattern>/servRest/*</url-pattern>
@@ -107,10 +109,7 @@
   	<servlet-name>IndexServlet</servlet-name>
   	<url-pattern>/Index</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>ServletSuccess2</servlet-name>
-  	<url-pattern>/Success/*</url-pattern>
-  </servlet-mapping>
+ 
   <servlet-mapping>
   	<servlet-name>ListUsersAdmin</servlet-name>
   	<url-pattern>/ListUsers</url-pattern>
@@ -123,6 +122,11 @@
   	<servlet-name>ServletPerm</servlet-name>
   	<url-pattern>/Perm</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PositionList</servlet-name>
+  	<url-pattern>/PositionList</url-pattern>
+  </servlet-mapping>
+
   
   
   

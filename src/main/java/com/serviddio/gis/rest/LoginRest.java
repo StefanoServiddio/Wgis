@@ -1,6 +1,7 @@
 package com.serviddio.gis.rest;
 
 
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -8,15 +9,17 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import org.json.*;
 
+
 import javax.ws.rs.core.MediaType;
 
-
+import com.serviddio.gis.controller.SessionCounter;
 import com.serviddio.gis.model.DAOUser;
 import com.serviddio.gis.tools.Crittog;
+import javax.servlet.http.HttpSessionEvent;
 
 
 
-@Path("resource")
+@Path("log")
 public class LoginRest {
 
 	/**
@@ -40,15 +43,19 @@ public class LoginRest {
 		
 		System.out.println("Stringa di input"+msg);
 		JSONObject req= new JSONObject(msg);
-		DAOUser gis = new DAOUser();
+		
 	
 		System.out.println("utente: "+req.getString("user_email"));
         System.out.println("password: "+req.getString("user_passw"));
-		Boolean checked = gis.check(req.getString("user_email"),
+		Boolean checked = DAOUser.getIstance().check(req.getString("user_email"),
 				Crittog.getIstance().encrypt(req.getString("user_passw")));
 		System.out.println("valore checked: "+checked.toString());
-		if(checked)
+		if(checked){
 			System.out.println("controllo superato");
+		
+			DAOUser.getIstance().setMobileTrue(req.getString("user_email"));
+			
+		}
 		JSONObject resp = new JSONObject().put("login", checked.toString());
 
 		return resp.toString();

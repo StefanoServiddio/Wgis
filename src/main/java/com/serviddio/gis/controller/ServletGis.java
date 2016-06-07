@@ -1,6 +1,6 @@
 package com.serviddio.gis.controller;
 
-import java.awt.Image;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;

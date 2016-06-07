@@ -70,7 +70,7 @@
 		
 			projection : 'EPSG:3857',
 			minZoom : 1,
-			maxZoom : 15,
+			maxZoom : 23,
 			center : origin,
 			zoom : 5
 		
@@ -83,7 +83,7 @@
 		});
 		
 		function formatCoord(fraction) {
-			var template = 'Long: {x} | Lat: {y}';
+			var template = 'Lon: {x} | Lat: {y}';
 			return (function(coordinate) {
 				return ol.coordinate.format(coordinate, template, fraction);
 			});

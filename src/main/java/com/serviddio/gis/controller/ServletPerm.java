@@ -41,8 +41,8 @@ public class ServletPerm extends HttpServlet {
 		// TODO Auto-generated method stub
 		System.out.println(request.getParameter("email"));
 		System.out.println(request.getParameter("role"));
-		DAOUser editPerm = new DAOUser();
-		if (editPerm.tooglePerm(request.getParameter("role"), request.getParameter("email")))
+	
+		if (DAOUser.getIstance().tooglePerm(request.getParameter("role"), request.getParameter("email")))
 
 			System.out.println("Modifica Completata con Successo");
 		else

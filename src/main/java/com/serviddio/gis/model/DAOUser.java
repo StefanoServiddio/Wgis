@@ -3,6 +3,10 @@ package com.serviddio.gis.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.sql.*;
 
 public class DAOUser {
@@ -10,6 +14,7 @@ public class DAOUser {
 	private Connection conn;
 	private String name_last_user = "";
 	private int role;
+	private static DAOUser istance = null;
 
 	public String getName_last_user() {
 		return name_last_user;
@@ -25,6 +30,13 @@ public class DAOUser {
 
 	public void setRole(int role) {
 		this.role = role;
+	}
+
+	public static synchronized DAOUser getIstance() {
+		if (istance == null) {
+			istance = new DAOUser();
+		}
+		return istance;
 	}
 
 	public void startConnection() {
@@ -165,7 +177,7 @@ public class DAOUser {
 
 	}
 
-	public int save(UserReg user) {
+	public int saveUsr(UserReg user) {
 		startConnection();
 		Statement stmt;
 
@@ -189,6 +201,154 @@ public class DAOUser {
 		}
 
 	}
+	public Boolean setMobileTrue( String email) {
+
+		startConnection();
+		Statement stmt;
+
+		try {
+			stmt = conn.createStatement();
+
+			
+				email = email.trim();
+				String query = "UPDATE utente " + "set mobile=true where email='" + email + "\';";
+				int a = stmt.executeUpdate(query);
+				System.out.println("valore query ritornato per User: " + a);
+				
+			stmt.close();
+			closeConn();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+			closeConn();
+			return false;
+
+		}
+
+	}
+	
+	
+	public Boolean getMobileUserState( String email) {
+
+		startConnection();
+		Statement stmt;
+
+		try {
+			stmt = conn.createStatement();
+
+			
+				email = email.trim();
+				
+				String query = "SELECT mobile FROM utente WHERE email=" + "\'" + email + "\'";
+			
+				ResultSet res = stmt.executeQuery(query);
+				res.next();
+				boolean value=res.getBoolean("mobile");
+				System.out.println("Mobile User value: "+res.getBoolean("mobile"));
+			    
+
+			
+			stmt.close();
+			closeConn();
+			return value;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+			closeConn();
+			return false;
+
+		}
+
+	}
+	
+	public JSONArray getAllUserLanLon(){
+		
+		JSONArray ja = new JSONArray();
+		startConnection();
+		Statement stmt;
+
+		try {
+			stmt = conn.createStatement();
+
+			
+				
+				
+				String query = "SELECT email, lat, lon FROM utente "
+						+ " WHERE" + " mobile='" + true + "\';";
+				ResultSet res = stmt.executeQuery(query);
+				JSONObject obj=new JSONObject();
+				
+				while(res.next()){
+					
+					obj.put("user_email", res.getString("email")).put("lat", res.getString("lat")).
+					put("lon", res.getString("lon"));
+					System.out.println("Oggetto: "+obj.toString());
+					ja.put(obj);
+					
+				
+				}
+				System.out.println("Trasmetto l'array: "+ja.toString());
+			
+			stmt.close();
+			closeConn();
+			return ja;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+			closeConn();
+			
+
+		}
+		
+		
+		
+		return null;
+	}
+	
+	
+	
+	public double[] getLanLon(String user_email){
+		double pos[]={0,0};
+		startConnection();
+		Statement stmt;
+
+		try {
+			stmt = conn.createStatement();
+
+			
+				String email = user_email.trim();
+				
+				String query = "SELECT lat, lon FROM utente WHERE email=" + "\'" + email + "\'";
+			
+				ResultSet res = stmt.executeQuery(query);
+				res.next();
+				
+				pos[0]=res.getDouble("lat");
+				pos[1]=res.getDouble("lon");
+				System.out.println("user: "+email+"lat: "+pos[0]+ "lon: "+pos[1]);
+			    
+
+			
+			stmt.close();
+			closeConn();
+			return pos;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+			closeConn();
+			
+
+		}
+		
+		
+		
+		return pos;
+	}
 
 	public Boolean tooglePerm(String role, String email) {
 
@@ -199,25 +359,22 @@ public class DAOUser {
 			stmt = conn.createStatement();
 
 			if (role.equals("Admin")) {
-                email=email.trim();
-				String query = "update utente" +
-		                   " set role=1 where"
-		                   + " email='"+email+"\' ;";
-				
-				int a=stmt.executeUpdate(query);
-				System.out.println("valore query ritornato per Admin: "+a);
-				
+				email = email.trim();
+				String query = "update utente" + " set role=1 where" + " email='" + email + "\' ;";
+
+				int a = stmt.executeUpdate(query);
+				System.out.println("valore query ritornato per Admin: " + a);
+
 			} else {
-				email=email.trim();
-				String query = "UPDATE utente " +
-		                   "set role=0 where email='"+email+"\';";
-				int a=stmt.executeUpdate(query);
-				System.out.println("valore query ritornato per User: "+a);
-							
+				email = email.trim();
+				String query = "UPDATE utente " + "set role=0 where email='" + email + "\';";
+				int a = stmt.executeUpdate(query);
+				System.out.println("valore query ritornato per User: " + a);
+
 			}
 			stmt.close();
 			closeConn();
-            return true;
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 
@@ -227,6 +384,76 @@ public class DAOUser {
 
 		}
 
+	}
+
+	public Boolean saveGeoInfo(UserGeo user) {
+		
+		startConnection();
+		Statement stmt;
+
+		try {
+			stmt = conn.createStatement();
+
+			
+				String email = user.getEmail().trim();
+				String query = "update utente set last_time_pos="+
+						"\'"+
+				user.getTime()+"\'"+ ","+
+				" lat="+
+				user.getLat()+","+
+				" lon="+
+				user.getLon()+
+				" where" + " email='" + email + "\' ;";
+				System.out.println("query trasmessa: "+query);
+
+				int a = stmt.executeUpdate(query);
+				System.out.println("valore ritornato query: "+a);
+
+			
+			stmt.close();
+			closeConn();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+			closeConn();
+			return false;
+
+		}
+		
+	}
+public Boolean setIntervalAllert(String user_email, int interval) {
+		
+		startConnection();
+		Statement stmt;
+
+		try {
+			stmt = conn.createStatement();
+
+			
+				String email = user_email.trim();
+				String query = "update utente set interval="+
+				interval+
+				" where" + " email='" + email + "\' ;";
+				System.out.println("query trasmessa: "+query);
+
+				int a = stmt.executeUpdate(query);
+				System.out.println("valore ritornato query: "+a);
+
+			
+			stmt.close();
+			closeConn();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+			closeConn();
+			return false;
+
+		}
+		
 	}
 
 }

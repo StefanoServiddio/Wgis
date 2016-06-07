@@ -3,10 +3,12 @@ package com.serviddio.gis.model;
 public class UserOnline extends User {
 
 	private String sessionid;
+	private boolean mobile;
 
 	public UserOnline() {
 		super();
-		sessionid = "";
+		this.sessionid = "";
+		this.mobile = false;
 
 	}
 
@@ -31,6 +33,14 @@ public class UserOnline extends User {
 
 	public void setId(String id) {
 		this.sessionid = id;
+	}
+	
+	public boolean isMobile() {
+		mobile =DAOUser.getIstance().getMobileUserState(this.getEmail());
+		return mobile;
+	}
+	public void setMobile(boolean mobile) {
+		this.mobile = mobile;
 	}
 
 }

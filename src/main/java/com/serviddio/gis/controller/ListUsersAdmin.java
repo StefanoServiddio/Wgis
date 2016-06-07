@@ -1,17 +1,14 @@
 package com.serviddio.gis.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
+
 import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionEvent;
-import javax.servlet.http.HttpSessionListener;
+
 
 import com.serviddio.gis.model.DAOUser;
 import com.serviddio.gis.model.UserLog;
@@ -39,13 +36,13 @@ public class ListUsersAdmin extends HttpServlet {
 		// TODO Auto-generated method stub
 		UserLog usr=(UserLog)request.getSession().getAttribute("user");
 		if(usr!=null && usr.isAdmin()){
-		DAOUser pickuser = new DAOUser();
+		
 
-		List<UserLog> usersList = pickuser.getUsersList();
+		List<UserLog> usersList = DAOUser.getIstance().getUsersList();
 
 		request.setAttribute("usersList", usersList);
-		if (pickuser.countEl() > -1)
-			request.setAttribute("numUtenti", pickuser.countEl());
+		if (DAOUser.getIstance().countEl() > -1)
+			request.setAttribute("numUtenti", DAOUser.getIstance().countEl());
 		request.getRequestDispatcher("/WEB-INF/listUsers.jsp").forward(request, response);
 		}
 		else
