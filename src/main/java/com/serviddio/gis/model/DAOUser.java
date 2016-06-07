@@ -273,20 +273,21 @@ public class DAOUser {
 		try {
 			stmt = conn.createStatement();
 
-			
+			     
 				
 				
 				String query = "SELECT email, lat, lon FROM utente "
 						+ " WHERE" + " mobile='" + true + "\';";
 				ResultSet res = stmt.executeQuery(query);
-				JSONObject obj=new JSONObject();
+				
 				
 				while(res.next()){
-					
+					JSONObject obj=new JSONObject();
 					obj.put("user_email", res.getString("email")).put("lat", res.getString("lat")).
 					put("lon", res.getString("lon"));
 					System.out.println("Oggetto: "+obj.toString());
 					ja.put(obj);
+			
 					
 				
 				}
@@ -311,8 +312,8 @@ public class DAOUser {
 	
 	
 	
-	public double[] getLanLon(String user_email){
-		double pos[]={0,0};
+	public JSONObject getLanLon(String user_email){
+		JSONObject obj=new JSONObject();
 		startConnection();
 		Statement stmt;
 
@@ -327,15 +328,15 @@ public class DAOUser {
 				ResultSet res = stmt.executeQuery(query);
 				res.next();
 				
-				pos[0]=res.getDouble("lat");
-				pos[1]=res.getDouble("lon");
-				System.out.println("user: "+email+"lat: "+pos[0]+ "lon: "+pos[1]);
+				obj.put("lat",res.getDouble("lat")).put("lon",res.getDouble("lon"));
+				
+				System.out.println("user: "+email+ "posizione utente"+obj.toString());
 			    
 
 			
 			stmt.close();
 			closeConn();
-			return pos;
+			return obj;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 
@@ -347,7 +348,7 @@ public class DAOUser {
 		
 		
 		
-		return pos;
+		return null;
 	}
 
 	public Boolean tooglePerm(String role, String email) {

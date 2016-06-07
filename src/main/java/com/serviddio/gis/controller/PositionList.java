@@ -6,51 +6,64 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.serviddio.gis.model.DAOUser;
+import com.serviddio.gis.model.UserLog;
 
 /**
  * Servlet implementation class PositionList
  */
 public class PositionList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public PositionList() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doPost(request,response);
+	public PositionList() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		response.setContentType("application/json");
-		
-		System.out.println("email dell'utente: "+request.getParameter("user"));
-		double[] pos=DAOUser.getIstance().getLanLon(request.getParameter("user"));
-		if(pos!=null)
-		{
-			JSONObject json_obj=new JSONObject().put("lat",pos[0] ).put("lon",pos[1]);
-		 response.getWriter().write(( json_obj).toString());
-		
-	
-		 
+		UserLog user_loggato = (UserLog) request.getSession().getAttribute("user");
+
+		if (user_loggato != null) {
+			System.out.println("email dell'utente: " + user_loggato.getEmail());
+			if (!user_loggato.isAdmin()) {
+				JSONObject obj = DAOUser.getIstance().getLanLon(user_loggato.getEmail());
+				if (obj != null)
+					response.getWriter().write((obj).toString());
+
+			} else {
+				JSONArray list_obj = DAOUser.getIstance().getAllUserLanLon();
+				if (list_obj != null)
+					response.getWriter().write((list_obj).toString());
+
+			}
+		} else {
+			System.out.println("Nessun Login effettuato");
 		}
-		 
-		
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
