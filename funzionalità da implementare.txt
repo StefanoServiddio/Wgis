@@ -1,12 +1,11 @@
 Funzionalità da aggiungere all'interno del progetto:
 
-2) Mostrare ultimo collegamento utenti
 
-)Archiviazione/Disattivazione utente
-Mostrare posizione mobile utente sulla mappa
-
-
-8) Interazione tomcat SSL da configurare
+-Join queue user online and user mobile
+-Archiviazione utenti
+-ricontrollare utente già loggato index page(invalida l'utente anche se già loggato)
+-Automatizzare il sistema di eleborazione di gdal
+-Interazione tomcat SSL da configurare
 
 
 Facoltativo

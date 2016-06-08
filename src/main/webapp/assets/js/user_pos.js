@@ -1,6 +1,4 @@
-	/**
-	 * 
-	 */
+	
 	
 	var source_vect_pos = new ol.source.Vector({
 			
@@ -10,12 +8,12 @@
 		source : source_vect_pos,
 		style : new ol.style.Style({
 			image : new ol.style.Circle({
-				radius : 4,
+				radius : 10,
 				stroke : new ol.style.Stroke({
 					color : '#fff'
 				}),
 				fill : new ol.style.Fill({
-					color : 'green'
+					color : 'yellow'
 				})
 			})
 		}),
@@ -30,6 +28,48 @@
 	function isArray(check_element) {
 		return Object.prototype.toString.call(check_element) === '[object Array]';
 	}
+	
+	
+var element = document.getElementById('popup');
+	
+	var popup = new ol.Overlay({
+		element : element,
+		positioning : 'bottom-center',
+		stopEvent : false,
+		content : 'Stefano'
+	});
+	map.addOverlay(popup);
+
+	
+	// display popup on click
+	map.on('dblclick', function(event) {
+		
+		var feature = map.forEachFeatureAtPixel(event.pixel, function(feature,
+				layer) {
+	             
+			if (layer.get('name') == 'posizione_utenti')
+				{
+				console.log(feature);
+				return feature;
+				}
+			return null;
+		});
+	
+		if (feature) {
+	
+			popup.setPosition(event.coordinate);
+			$(element).popover({
+				'placement' : 'top',
+				'html' : true
+	
+			});
+			$(element).popover('show');
+		} else {
+			$(element).popover('destroy');
+		}
+	
+	});
+
 	
 	$('document').ready(
 			function() {
@@ -81,42 +121,7 @@
 						}
 					});
 	
-				}, 5* s);
+				}, 10* s);
 			});
 	
-	var element = document.getElementById('popup');
 	
-	var popup = new ol.Overlay({
-		element : element,
-		positioning : 'bottom-center',
-		stopEvent : false,
-		content : 'Stefano'
-	});
-	map.addOverlay(popup);
-	//map.addInteraction(selectSingleClick);
-	
-	// display popup on click
-	map.on('dblclick', function(event) {
-		console.log(event)
-		var feature = map.forEachFeatureAtPixel(event.pixel, function(feature,
-				layer) {
-	
-			if (layer.get('name') == 'posizione_utenti')
-				return feature;
-			return null;
-		});
-	
-		if (feature) {
-	
-			popup.setPosition(event.coordinate);
-			$(element).popover({
-				'placement' : 'top',
-				'html' : true
-	
-			});
-			$(element).popover('show');
-		} else {
-			$(element).popover('destroy');
-		}
-	
-	})

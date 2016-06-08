@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+
+
+.jumbotron {
+  display: flex;
+  align-items: center;
+  background-image: url('http://goo.gl/kxJPrj');
+  background-size: cover;
+  color: #ffffff;
+  
+  text-shadow: 3px 3px 3px #000000;
+   height: 125vh;
+}
+.jumbotron p,h2 {
+        font-size: 3em;
+    }

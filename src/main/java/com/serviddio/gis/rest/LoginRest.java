@@ -1,7 +1,7 @@
 package com.serviddio.gis.rest;
 
 
-import javax.servlet.http.HttpSession;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -12,14 +12,13 @@ import org.json.*;
 
 import javax.ws.rs.core.MediaType;
 
-import com.serviddio.gis.controller.SessionCounter;
 import com.serviddio.gis.model.DAOUser;
 import com.serviddio.gis.tools.Crittog;
-import javax.servlet.http.HttpSessionEvent;
 
 
 
-@Path("log")
+
+@Path("login")
 public class LoginRest {
 
 	/**

@@ -230,6 +230,37 @@ public class DAOUser {
 	}
 	
 	
+	public Boolean setMobileFalse( String email) {
+
+		startConnection();
+		Statement stmt;
+
+		try {
+			stmt = conn.createStatement();
+
+			
+				email = email.trim();
+				String query = "UPDATE utente " + "set mobile=false where email='" + email + "\';";
+				int a = stmt.executeUpdate(query);
+				System.out.println("valore query ritornato per User: " + a);
+				
+			stmt.close();
+			closeConn();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+			closeConn();
+			return false;
+
+		}
+
+	}
+	
+	
+	
+	
 	public Boolean getMobileUserState( String email) {
 
 		startConnection();
