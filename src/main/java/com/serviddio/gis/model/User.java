@@ -4,12 +4,23 @@ public class User {
 	private String name;
 	private String email;
 	private int role;
+	private boolean archived;
+
+	public boolean isArchived() {
+		return archived;
+	}
+
+	public void setArchived(boolean archived) {
+		
+		this.archived = archived;
+	}
 
 	public User() {
 		super();
 		name = "";
 		email = "";
 		role = -1;
+		archived=false;
 	}
 
 	public int getRole() {

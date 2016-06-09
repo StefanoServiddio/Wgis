@@ -53,7 +53,8 @@
 								<th>Password</th>
 								<th>Role</th>
 								<th>Options</th>
-								
+								<th>Archived</th>
+
 							</tr>
 						</thead>
 						<tbody>
@@ -91,6 +92,30 @@
 								<%
 									}
 								%>
+								
+								
+									
+								<%
+									if (usr.isArchived()) {
+								%>
+								<td><select class="form-control input-sm archived">
+										<option value="archived">Disable</option>
+										<option value="enable">Enable</option>
+
+								</select></td>
+								<%
+									} else {
+								%>
+								<td><select class="form-control input-sm archived">
+										<option value="enable">Enable</option>
+										<option value="archived">Disable</option>
+								</select></td>
+
+								<%
+									}
+								%>
+								
+								
 
 							</tr>
 
@@ -100,6 +125,8 @@
 							%>
 							<script type="text/javascript"
 								src="/Wgis/assets/js/selectRole.js"></script>
+								<script type="text/javascript"
+								src="/Wgis/assets/js/archivUser.js"></script>
 						</tbody>
 					</table>
 				</div>
@@ -171,7 +198,7 @@
 								<td><%=uo.getEmail()%></td>
 								<td><%=uo.returnRole()%></td>
 								<%if(uo.isMobile()){ %>
-									<td>online</td>
+								<td>online</td>
 								<%}else{ %>
 								<td>offline</td>
 								<%} %>
@@ -186,6 +213,35 @@
 
 							<%
 								}
+							%>
+
+
+
+							<%
+							
+							   List<UserOnline> list_mobile_user= DAOUser.getIstance().getMobileUserListOnline();
+								for (UserOnline uo : list_mobile_user) {
+									
+								
+									
+								if (!counter.getSessions().contains(uo)){
+							
+								
+							%>
+							<tr class="utenti_online">
+								<td><%=uo.getId()%></td>
+
+
+								<td><%=uo.getName()%></td>
+
+								<td><%=uo.getEmail()%></td>
+								<td><%=uo.returnRole()%></td>
+
+								<td>online</td>
+							</tr>
+
+							<%
+								}}
 							%>
 						</tbody>
 					</table>

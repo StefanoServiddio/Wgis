@@ -3,6 +3,7 @@ package com.serviddio.gis.model;
 public class UserOnline extends User {
 
 	private String sessionid;
+	
 	private boolean mobile;
 
 	public UserOnline() {
@@ -16,6 +17,7 @@ public class UserOnline extends User {
 		this.sessionid = id;
 		this.setName(name);
 		this.setEmail(email);
+		
 
 	}
 
@@ -43,4 +45,23 @@ public class UserOnline extends User {
 		this.mobile = mobile;
 	}
 
+	public void setPassword(String string) {
+		// TODO Auto-generated method stub
+		this.setPassword(string);
+		
+	}
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return this.getPassword();
+		
+	}
+	
+	 @Override
+	    public boolean equals(Object o){
+	        if(o instanceof UserOnline){
+	            UserOnline toCompare = (UserOnline) o;
+	            return getEmail().equals((toCompare.getEmail()));
+	        }
+	        return false;
+	    }
 }

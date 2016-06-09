@@ -1,15 +1,12 @@
 Funzionalità da aggiungere all'interno del progetto:
 
 
--Join queue user online and user mobile
 -Archiviazione utenti
--ricontrollare utente già loggato index page(invalida l'utente anche se già loggato)
+
 -Automatizzare il sistema di eleborazione di gdal
 -Interazione tomcat SSL da configurare
 
 
-Facoltativo
-Infine Testing con Junit e Selenium
 
 
 

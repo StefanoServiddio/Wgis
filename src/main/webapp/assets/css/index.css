@@ -11,6 +11,12 @@
   text-shadow: 3px 3px 3px #000000;
    height: 125vh;
 }
-.jumbotron p,h2 {
+.jumbotron h1,h2 {
         font-size: 3em;
     }
+    
+.jumbotron .btn-lg {
+    padding: 18px 30px;
+    font-size: 40px;
+    border-radius: 8px;
+}

@@ -121,7 +121,7 @@ var element = document.getElementById('popup');
 						}
 					});
 	
-				}, 10* s);
+				}, 10* min);
 			});
 	
 	

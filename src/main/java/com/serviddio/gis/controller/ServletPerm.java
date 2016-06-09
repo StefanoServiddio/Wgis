@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.serviddio.gis.model.DAOUser;
+import com.serviddio.gis.model.UserLog;
 
 /**
  * Servlet implementation class ServletPerm
@@ -39,9 +40,15 @@ public class ServletPerm extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		
+		//controllo che a trasmettere sia solo l'amministratore
+	  UserLog usr=(UserLog)request.getSession().getAttribute("user");
+		
 		System.out.println(request.getParameter("email"));
 		System.out.println(request.getParameter("role"));
-	
+	if(usr.isAdmin())
+	{
 		if (DAOUser.getIstance().tooglePerm(request.getParameter("role"), request.getParameter("email")))
 
 			System.out.println("Modifica Completata con Successo");
@@ -49,6 +56,7 @@ public class ServletPerm extends HttpServlet {
 
 			System.out.println("Modifica  Errata");
 
+	}
 	}
 
 }
