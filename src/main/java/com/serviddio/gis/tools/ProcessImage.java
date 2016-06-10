@@ -1,5 +1,6 @@
 package com.serviddio.gis.tools;
 
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -11,12 +12,12 @@ public class ProcessImage {
 	
 	public void crop(){
 	    int x = 0;
-	    int y = 142;
+	    int y = 110;
 	    int w = 600;
-	    int h = 850-y;
+	    int h = 722-y;
 
-	    String path = "/home/stefano/workspace/Wgis/src/main/webapp/assets/img/allertaOggi.jpg";
-	    String path2 = "/home/stefano/workspace/Wgis/src/main/webapp/assets/img/allertaOggiEdit.jpg";
+	    String path = "/home/stefano/workspace/Wgis/src/main/webapp/assets/img/allertaOggi2.jpg";
+	    String path2 = "/home/stefano/workspace/Wgis/src/main/webapp/assets/img/allertaOggiEdit2.jpg";
 	    
 
 	  
@@ -35,6 +36,9 @@ public class ProcessImage {
 		}
 
 	}
+	
+	
+	
 	public void getRGBCol()
 	{
 		 int clr=  image.getRGB(303,232); 

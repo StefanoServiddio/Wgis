@@ -1,13 +1,6 @@
 Funzionalità da aggiungere all'interno del progetto:
-
-
--Archiviazione utenti
-
 -Automatizzare il sistema di eleborazione di gdal
 -Interazione tomcat SSL da configurare
-
-
-
 
 
 Funzionalità gia aggiunte:
@@ -20,10 +13,10 @@ Funzionalità gia aggiunte:
  7) Registrazione utente
  8)Crittazione password
  9)Trasmissione Mobile Dati Lat Lon
+10) Archiviazione utente
+11)Merge mobile Browser online list
+12)slide legend image
 
-Cose da Completare:
-N.B.: Aggiornare la lista delle sessioni attive durante la modifica dei ruoli
-ed ovviamente tener conto con relativo con redirezione degli utente online
  
  
   

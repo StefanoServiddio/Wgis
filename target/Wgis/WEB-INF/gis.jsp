@@ -144,7 +144,8 @@
 					<div id="info" style="display: none;"></div>
 					<label> Show Position <input id="track" type="checkbox" /></label>
 					<p id="info"></p>
-
+					<button type="button" class="btn btn-info" id="legend">Mostra Legenda</button>
+                    <img id="imgLegenda" src="/Wgis/assets/img/legend.jpg"/>
 
 
 					<script type="text/javascript" src="/Wgis/assets/js/start.js">
@@ -159,6 +160,10 @@
 						
 					</script>
 					<script type="text/javascript" src="/Wgis/assets/js/user_pos.js">
+						
+					</script>
+					<script type="text/javascript"
+						src="/Wgis/assets/js/slideLegend.js">
 						
 					</script>
 

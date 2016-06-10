@@ -539,7 +539,7 @@ public class DAOUser {
 
 	}
 
-	public Boolean setIntervalAllert(String user_email, int interval) {
+	public Boolean setIntervalAllert(String user_email, int interval, Timestamp time) {
 
 		startConnection();
 		Statement stmt;
@@ -548,7 +548,8 @@ public class DAOUser {
 			stmt = conn.createStatement();
 
 			String email = user_email.trim();
-			String query = "update utente set interval=" + interval + " where" + " email='" + email + "\' ;";
+			String query = "update utente set interval=" + interval + "," + "ref_time_update=" + "\'" + time + "\' " 
+			+" where" + " email='" + email + "\' ;";
 			System.out.println("query trasmessa: " + query);
 
 			int a = stmt.executeUpdate(query);

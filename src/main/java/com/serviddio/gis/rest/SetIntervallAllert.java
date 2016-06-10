@@ -2,6 +2,8 @@ package com.serviddio.gis.rest;
 
 
 
+import java.sql.Timestamp;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -37,7 +39,8 @@ public class SetIntervallAllert {
 		
 	  System.out.println("nuovo intervallo ricevuto: "+req.getInt("interval"));
 	
-	    DAOUser.getIstance().setIntervalAllert(req.getString("user_email"), req.getInt("interval"));
+	    DAOUser.getIstance().setIntervalAllert(req.getString("user_email"), req.getInt("interval"),
+	    		Timestamp.valueOf(req.getString("time")));
 		
 		
 		JSONObject resp = new JSONObject().put("ack","true");

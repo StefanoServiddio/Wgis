@@ -48,7 +48,7 @@
 					<h1>Welcome to Wonderful GIS</h1>
 				
 
-				<h2>Now you will be redirected to Main Page</h2>
+				<h2>Now you will be redirected to GIS Page</h2>
 				<h2>Have a Nice Day !!!</h2>
 				
 				

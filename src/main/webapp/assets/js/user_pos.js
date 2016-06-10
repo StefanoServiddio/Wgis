@@ -91,6 +91,7 @@ var element = document.getElementById('popup');
 								var coordinates= new Array();
 								
 								
+								source_vect_pos.clear();
 							
 								$.each(response, function(idx, oggetto) {
 									coordinates[0] = oggetto.lon;
@@ -113,6 +114,7 @@ var element = document.getElementById('popup');
 								var coordinates = [ response.lon, response.lat ];
 								var valueGeoPosSte = new ol.Feature(
 										new ol.geom.Point(coordinates));
+								source_vect_pos.clear();
 								source_vect_pos.addFeature(valueGeoPosSte);
 								
 								
@@ -121,7 +123,7 @@ var element = document.getElementById('popup');
 						}
 					});
 	
-				}, 10* min);
+				}, 10* s);
 			});
 	
 	
