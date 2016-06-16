@@ -51,10 +51,11 @@ public class ServletSignUp extends HttpServlet {
 		{
 			System.out.println("Registrazione Completata con Successo");
 			request.setAttribute("user", user);
-			request.getRequestDispatcher("/WEB-INF/success_reg.jsp").forward(request, response);;
+			request.getRequestDispatcher("/WEB-INF/success_reg.jsp").forward(request, response);
 		}
 		else
 			System.out.println("Registrazione fallita");
+			request.getRequestDispatcher("/WEB-INF/signup_error.jsp").forward(request, response);
 
 	}
 

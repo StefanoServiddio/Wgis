@@ -1,5 +1,5 @@
 	
-	
+		
 	var source_vect_pos = new ol.source.Vector({
 			
 	});
@@ -28,47 +28,6 @@
 	function isArray(check_element) {
 		return Object.prototype.toString.call(check_element) === '[object Array]';
 	}
-	
-	
-var element = document.getElementById('popup');
-	
-	var popup = new ol.Overlay({
-		element : element,
-		positioning : 'bottom-center',
-		stopEvent : false,
-		content : 'Stefano'
-	});
-	map.addOverlay(popup);
-
-	
-	// display popup on click
-	map.on('dblclick', function(event) {
-		
-		var feature = map.forEachFeatureAtPixel(event.pixel, function(feature,
-				layer) {
-	             
-			if (layer.get('name') == 'posizione_utenti')
-				{
-				console.log(feature);
-				return feature;
-				}
-			return null;
-		});
-	
-		if (feature) {
-	
-			popup.setPosition(event.coordinate);
-			$(element).popover({
-				'placement' : 'top',
-				'html' : true
-	
-			});
-			$(element).popover('show');
-		} else {
-			$(element).popover('destroy');
-		}
-	
-	});
 
 	
 	$('document').ready(
@@ -76,7 +35,7 @@ var element = document.getElementById('popup');
 				setInterval(function() {
 	
 					$.ajax({
-						url : 'http://localhost:9925/Wgis/PositionList',
+						url : './PositionList',
 						type : 'GET',
 						dataType : 'json',
 						success : function(response) {
@@ -96,9 +55,14 @@ var element = document.getElementById('popup');
 								$.each(response, function(idx, oggetto) {
 									coordinates[0] = oggetto.lon;
 									coordinates[1]=oggetto.lat ;	
+									console.log("email: "+oggetto.user_email);
 									console.log("lon: "+coordinates[0]);
 									console.log("lat: "+coordinates[1]);
-									pos_user_features[idx] = new ol.Feature(new ol.geom.Point(coordinates));
+									pos_user_features[idx] = new ol.Feature({
+											
+											geometry: new ol.geom.Point(coordinates),
+									    'user': oggetto.user_email  
+								});
 										
 									
 								});
@@ -112,8 +76,12 @@ var element = document.getElementById('popup');
 							}else{
 								console.log("Solo un oggetto");
 								var coordinates = [ response.lon, response.lat ];
-								var valueGeoPosSte = new ol.Feature(
-										new ol.geom.Point(coordinates));
+								var valueGeoPosSte = new ol.Feature({
+										geometry: new ol.geom.Point(coordinates),
+										'user': response.user_email
+								
+								
+								});
 								source_vect_pos.clear();
 								source_vect_pos.addFeature(valueGeoPosSte);
 								
@@ -124,6 +92,72 @@ var element = document.getElementById('popup');
 					});
 	
 				}, 10* s);
+				
+			
+				
+				
+				
 			});
+	
+	
+	var element = document.getElementById('popup');
+	
+	var popup = new ol.Overlay({
+		element : document.getElementById('popup'),
+		 
+		
+		positioning : 'bottom-center',
+		stopEvent : false
+		
+	});
+	
+	map.addOverlay(popup);
+	
+	
+	map.on('singleclick', function(event) {
+		text=event.coordinate + "\nStefano";
+		var feature = map.forEachFeatureAtPixel(event.pixel, function(feature,layer) {
+			console.log(feature);
+	            
+			if (layer.get('name') == 'posizione_utenti')
+				{
+				console.log(feature);
+				return feature;
+				}
+			return null;
+		});
+		
+		if (feature) {
+			
+			popup.setPosition(event.coordinate);
+			$(element).popover({
+				'placement' : 'top',
+				'html' : true,
+				
+				'content': feature.get('user')
+				
+	
+			});
+			
+		
+			$(element).popover('show');
+			
+		} else {
+			$(element).popover('destroy');
+		}
+	
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			
+	
 	
 	

@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page import="com.serviddio.gis.controller.*"%>
-<%@ page import="com.serviddio.gis.model.*"%>
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="java.util.Iterator"%>
-<%@ page import="java.util.List"%>
+    pageEncoding="UTF-8"%>
+<%@ page import="com.serviddio.gis.controller.*, com.serviddio.gis.model.*,
+java.util.ArrayList,java.util.Iterator,java.util.List"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +15,8 @@
 <link href="./assets/css/userslist.css" rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Admin List Users</title>
 
 </head>

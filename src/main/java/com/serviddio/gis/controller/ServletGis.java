@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.serviddio.gis.tools.ProcessImage;
 import com.serviddio.gis.tools.Scraping;
 
 
@@ -19,7 +20,7 @@ import com.serviddio.gis.tools.Scraping;
  */
 public class ServletGis extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private boolean isImageLoaded=false;       
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -33,31 +34,26 @@ public class ServletGis extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		try {
-			Scraping.getDataInfo();
-			
-			BufferedImage img=Scraping.getImageFromURL("http://www.protezionecivile.gov.it/resources/cms/images/"+
-			Scraping.getDate()
-		    +"_oggi_bcr_d0.jpg");
-			if(img==null)
-			{ 
-				System.out.println("nessuna immagine trovata, avvio secondo tentativo");
-				img=Scraping.getImageFromURL("http://www.protezionecivile.gov.it/resources/cms/images/"+
-						Scraping.getDate()
-					    +"_domani_bcr_d0.jpg");
-			}
-			ImageIO.write(img, "jpg", new File("/home/stefano/workspace/Wgis/src/main/webapp/assets/img/allertaOggi.jpg"));
-			
-			if(img!=null)
-		   {
-			   System.out.println("Immagine caricata con successo");
-		   }
-		
-		} catch (InterruptedException e) {
-			System.out.println("problemi scraping");
-			e.printStackTrace();
+		boolean imgGetted=false;
+		String link="http://www.protezionecivile.gov.it/resources/cms/images/"+
+				Scraping.getDate()
+			    +"_oggi_bcr_d0.jpg";
+		imgGetted=Scraping.getImageFromURL(link);
+		System.out.println("link immagine oggi: "+link);
+		if(!imgGetted)
+		{ 
+			System.out.println("nessuna immagine trovata, avvio secondo tentativo");
+			link="http://www.protezionecivile.gov.it/resources/cms/images/"+
+					Scraping.getDate()
+				    +"_domani_bcr_d0.jpg";
+			System.out.println("link immagine domani: "+link);
+			imgGetted=Scraping.getImageFromURL(link);
 		}
+		if(imgGetted)
+		     System.out.println("Immagine caricata con successo");
+			
+			// 
+   
 		request.getRequestDispatcher("/WEB-INF/gis.jsp").forward(request, response);
 	}
 

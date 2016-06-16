@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page import="java.io.File"%>
-<%@ page import="com.serviddio.gis.model.*"%>
-<%@ page import="com.serviddio.gis.controller.SessionCounter"%>
+    pageEncoding="UTF-8"%>
+
+<%@ page import="java.io.File,com.serviddio.gis.model.*, com.serviddio.gis.controller.SessionCounter"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,16 +28,6 @@
 
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<script
-	src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js"
-	type="text/javascript"></script>
-
-
-
-
-
-
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -127,7 +117,11 @@
 	<div class="jumbotron-fluid" style="background-color: inherit;">
 		<div class="row" id="map-row">
 			<div class="col-xs-9 col-md-9 col-lg-10">
-				<div id="map" class="map"><div id="popup"></div></div>
+				<div id="map" class="map"></div>
+				<div id="popup"></div>
+					
+					
+				
 				<div id="scale-line" class="ol-scale-line"></div>
 
 			</div>
@@ -144,8 +138,8 @@
 					<div id="info" style="display: none;"></div>
 					<label> Show Position <input id="track" type="checkbox" /></label>
 					<p id="info"></p>
-					<button type="button" class="btn btn-info" id="legend">Mostra Legenda</button>
-                    <img id="imgLegenda" src="/Wgis/assets/img/legend.jpg"/>
+					<button type="button" class="btn btn-info" id="legend">Nascondi Legenda</button>
+					<img id="imgLegenda" src="/Wgis/assets/img/legend.jpg" />
 
 
 					<script type="text/javascript" src="/Wgis/assets/js/start.js">
@@ -162,8 +156,7 @@
 					<script type="text/javascript" src="/Wgis/assets/js/user_pos.js">
 						
 					</script>
-					<script type="text/javascript"
-						src="/Wgis/assets/js/slideLegend.js">
+					<script type="text/javascript" src="/Wgis/assets/js/slideLegend.js">
 						
 					</script>
 
@@ -176,32 +169,6 @@
 
 
 
-<!-- 	<div class="container-fluid">
-		<div class="row">
 
-			<%
-				File img = new File("/home/stefano/workspace/Wgis/src/main/webapp/assets/img/allertaOggi.jpg");
-
-				if (img.exists()) {
-			%>
-
-
-			<div class="col-xs-4 col-md-4 col-lg-4">
-				<img type="image/tif" src="/Wgis/assets/img/allertaOggi.jpg">
-			</div>
-			
-
-			<%
-				}
-			%>
-			<div class="col-xs-2 col-md-2 col-lg-2">
-				<img style="width: 200px; height: 300px;"
-					src="http://www.protezionecivile.gov.it/resources/cms/images/legenda_bcr_5_d0.jpg">
-			</div>
-
-
-		</div>
-	</div>
-	  -->
 </body>
 </html>

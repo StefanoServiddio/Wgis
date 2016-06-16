@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ page
 	import="java.io.*,java.util.*,com.serviddio.gis.model.*, com.serviddio.gis.controller.SessionCounter"%>
 <!DOCTYPE html>
@@ -7,8 +7,8 @@
 <head>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login Successful</title>
 <%if(SessionCounter.isNull)
 	   request.getSession().invalidate(); %>

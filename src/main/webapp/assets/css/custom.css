@@ -42,4 +42,7 @@
          width: 800px;
          height: 800px;
      }
+  #popup {
+    min-width: 280px;
+}
 

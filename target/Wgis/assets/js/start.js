@@ -54,7 +54,7 @@
 			opacity : 0.7,
 			source : new ol.source.XYZ({
 		
-				url : 'http://localhost:9925/Wgis/assets/img/Allerta/{z}/{x}/{-y}.png'
+				url : './assets/img/Allerta/{z}/{x}/{-y}.png'
 			
 		
 			}),

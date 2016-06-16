@@ -3,8 +3,8 @@
       <Title>allertaOggiConv.tif</Title>
       <Abstract></Abstract>
       <SRS>EPSG:900913</SRS>
-      <BoundingBox minx="33.23467434154193" miny="5.45884061057020" maxx="47.67648670664247" maxy="20.04104446389166"/>
-      <Origin x="33.23467434154193" y="5.45884061057020"/>
+      <BoundingBox minx="35.91589527731489" miny="5.52034412565209" maxx="48.26340172149035" maxy="20.03362994368743"/>
+      <Origin x="35.91589527731489" y="5.52034412565209"/>
       <TileFormat width="256" height="256" mime-type="image/png" extension="png"/>
       <TileSets profile="mercator">
         <TileSet href="1" units-per-pixel="78271.51695000000473" order="1"/>

@@ -2,7 +2,7 @@ package com.serviddio.gis.tools;
 
 
 import java.awt.image.BufferedImage;
-
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -21,57 +21,38 @@ import org.jsoup.select.Selector;
 
 
 public class Scraping {
-	public static void getDataInfo() throws InterruptedException {
-		String relLink = "";
-		try {
-			// fetch the document over HTTP
-			Document doc = Jsoup.connect("http://www.protezionecivile.gov.it/jcms/it/allertamento_meteo_idro.wp").get();
+	private static boolean lunchScriptOnlyTimes=true;
 
-			// get the page title
-			String title = doc.title();
-			System.out.println("title: " + title);
-
-			// get all links in page
-			Elements contents = doc.select("span.viewall > a[href]");
-
-			for (Element cont : contents) {
-				// get the value from the href attribute
-				relLink = cont.attr("href");
-				if (Pattern.matches("view_bcr.wp.*", relLink))
-
-					System.out.println("link: " + relLink);
-
-			}
-			doc = Jsoup.connect("http://www.protezionecivile.gov.it/jcms/it/" + relLink).get();
-			title = doc.title();
-			System.out.println("title: " + title);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		// WebDriver driver = new FirefoxDriver();
-		// driver.get("http://www.protezionecivile.gov.it/jcms/it/" + relLink);
-
-	}
-
-	public static BufferedImage getImageFromURL(String url) {
+	public static boolean getImageFromURL(String url) {
 		try {
 			URL urlPath;
 
 			urlPath = new URL(url);
 			
-			BufferedImage img = ImageIO.read(urlPath);
-			return img;
+			BufferedImage img = ImageIO.read(urlPath.openStream());
+			if(img!=null)
+			{
+			ImageIO.write(img, "jpg", new File("/home/stefano/Immagini/allertaOggi.jpg"));
+			ProcessImage pi= new ProcessImage();
+			pi.crop();
+			if(lunchScriptOnlyTimes)
+			{
+			Runtime.getRuntime().exec("/home/stefano/workspace/Wgis/src/main/webapp/WEB-INF/script/script_gdal");
+			lunchScriptOnlyTimes=false;
+			}
+			return true;
+			}
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			System.out.println("URL inesistente");
 			e.printStackTrace();
-			return null;
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return null;
+			
 		}
+		return false;
 
 	}
 	public static String getDate(){

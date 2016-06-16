@@ -38,7 +38,7 @@ public class ServletLogin extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/signin.jsp").forward(request, response);
 
 	}
 
@@ -61,24 +61,25 @@ public class ServletLogin extends HttpServlet {
 				
 				Boolean checked = DAOUser.getIstance().check(request.getParameter("email"),
 						Crittog.getIstance().encrypt(request.getParameter("password")));
-				UserLog ut = new UserLog(request.getParameter("email"), request.getParameter("password"));
-				ut.setName(DAOUser.getIstance().getName_last_user());
-				ut.setRole(DAOUser.getIstance().getRole());
+				
 
 				if (checked) {
+					UserLog ut = new UserLog(request.getParameter("email"), request.getParameter("password"));
+					ut.setName(DAOUser.getIstance().getName_last_user());
+					ut.setRole(DAOUser.getIstance().getRole());
 					HttpSession session = request.getSession();
 					session.setAttribute("user", ut);
-
+					session.setMaxInactiveInterval(30 * 60);
 					UserOnline us = new UserOnline(session.getId(), ut.getName(), ut.getEmail(), ut.getRole());
 					SessionCounter contatoreSessione = (SessionCounter) session.getAttribute(SessionCounter.COUNTER);
 					contatoreSessione.updateSession(session.getId(), us);
 
-					session.setMaxInactiveInterval(10 * 60);
+					
 					response.sendRedirect("./Success");
 
 				} else {
 
-					request.getRequestDispatcher("/WEB-INF/loginError.jsp").forward(request, response);
+					request.getRequestDispatcher("/WEB-INF/signinError.jsp").forward(request, response);
 
 				}
 

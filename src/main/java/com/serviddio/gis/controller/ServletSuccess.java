@@ -31,7 +31,7 @@ public class ServletSuccess extends HttpServlet {
 		//String pathInfo = request.getPathInfo();
 		//Long id = Long.valueOf(pathInfo.substring(1));
 	     //System.out.println("Lo user richiesto è: "+pathInfo);
-		request.getRequestDispatcher("/WEB-INF/succesfully.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/success_signin.jsp").forward(request, response);
 	}
 
 	/**

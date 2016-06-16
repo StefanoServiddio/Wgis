@@ -45,10 +45,10 @@
   </servlet>
   
   <servlet>
-  	<servlet-name>ListUsersAdmin</servlet-name>
-  	<display-name>ListUsersAdmin</display-name>
+  	<servlet-name>ServletListUsersAdmin</servlet-name>
+  	<display-name>ServletListUsersAdmin</display-name>
   	<description></description>
-  	<servlet-class>com.serviddio.gis.controller.ListUsersAdmin</servlet-class>
+  	<servlet-class>com.serviddio.gis.controller.ServletListUsersAdmin</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>SignUp</servlet-name>
@@ -73,10 +73,10 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
    <servlet>
-   	<servlet-name>PositionList</servlet-name>
-   	<display-name>PositionList</display-name>
+   	<servlet-name>ServletPositionList</servlet-name>
+   	<display-name>ServletPositionList</display-name>
    	<description></description>
-   	<servlet-class>com.serviddio.gis.controller.PositionList</servlet-class>
+   	<servlet-class>com.serviddio.gis.controller.ServletPositionList</servlet-class>
    </servlet>
    <servlet>
    	<servlet-name>ServletArchived</servlet-name>
@@ -117,7 +117,7 @@
   </servlet-mapping>
  
   <servlet-mapping>
-  	<servlet-name>ListUsersAdmin</servlet-name>
+  	<servlet-name>ServletListUsersAdmin</servlet-name>
   	<url-pattern>/ListUsers</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
@@ -129,7 +129,7 @@
   	<url-pattern>/Perm</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>PositionList</servlet-name>
+  	<servlet-name>ServletPositionList</servlet-name>
   	<url-pattern>/PositionList</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
